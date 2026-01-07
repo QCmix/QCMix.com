@@ -20,6 +20,18 @@ A dedicated hub for Quad Cities Bartenders, Venues, and Musicians.
 - **Styling:** Tailwind CSS
 - **Backend/Auth:** Firebase (Authentication + Firestore)
 
+### Project Status
+
+QCmix is under active development.
+
+Current phase focuses on:
+- Core site structure and routing
+- Authentication and user context
+- Public landing pages
+- “Coming Soon” tip tracking feature
+
+Additional functionality will be introduced incrementally.
+
 ---
 
 Developer: Jacob J. Hess
