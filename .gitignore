@@ -7,7 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Env files
+.env*
+.env.local
+
+# Build outputs (legacy / safety)
 dist
 dist-ssr
 *.local
