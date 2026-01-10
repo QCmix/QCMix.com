@@ -1,0 +1,117 @@
+export const metadata = {
+  title: "About QCMix",
+  description:
+    "QCMix is an independent editorial platform documenting the bars, bartenders, and music culture of the Quad Cities.",
+};
+
+export default function AboutPage() {
+  return (
+    <main className="mx-auto max-w-3xl px-6 py-16">
+      <h1 className="text-3xl font-semibold tracking-tight">
+        About QCMix
+      </h1>
+
+      <section className="mt-8 space-y-4 text-base leading-relaxed">
+        <p>
+          QCMix is an independent regional editorial platform documenting the
+          bars, bartenders, and live-music culture of the Quad Cities.
+        </p>
+
+        <p>
+          We focus on nightlife not as entertainment alone, but as labor,
+          infrastructure, and culture. Our work records what exists now, what
+          existed before, and how those spaces, people, and scenes shaped the
+          region.
+        </p>
+
+        <p>
+          The Quad Cities is a bi-state metro with its own internal logic,
+          history, and cultural gravity. QCMix treats it as such.
+        </p>
+      </section>
+
+      <section className="mt-12 space-y-4">
+        <h2 className="text-xl font-medium">
+          Editorial Mission
+        </h2>
+
+        <p>
+          QCMix exists to preserve local cultural history before it disappears,
+          document nightlife as skilled work and social infrastructure, and
+          provide context rather than hype.
+        </p>
+
+        <p>
+          We publish deliberately and selectively. Volume is not the goal.
+          Accuracy is.
+        </p>
+      </section>
+
+      <section className="mt-12 space-y-4">
+        <h2 className="text-xl font-medium">
+          Editorial Independence
+        </h2>
+
+        <p>
+          QCMix maintains full editorial control over all published content.
+          Coverage is never sold, and sponsorship does not imply endorsement.
+        </p>
+
+        <p>
+          Financial support does not influence tone, ranking, or conclusions.
+          Sponsored content is clearly labeled.
+        </p>
+      </section>
+
+      <section className="mt-12 space-y-4">
+        <h2 className="text-xl font-medium">
+          Standards &amp; Methodology
+        </h2>
+
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <strong>Accuracy:</strong> Claims are verified. Dates, names, and
+            locations are fact-checked. Corrections are issued transparently.
+          </li>
+          <li>
+            <strong>Context:</strong> Events are placed within historical,
+            economic, and regional frameworks.
+          </li>
+          <li>
+            <strong>Respect for Labor:</strong> Bartenders, musicians, and venue
+            staff are treated as professionals.
+          </li>
+          <li>
+            <strong>Permanence:</strong> QCMix is an archive, not a feed.
+            Content is updated rather than discarded.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-12 space-y-4">
+        <h2 className="text-xl font-medium">
+          What We Do Not Do
+        </h2>
+
+        <ul className="list-disc pl-6 space-y-2">
+          <li>We do not chase trends</li>
+          <li>We do not publish clickbait</li>
+          <li>We do not operate as a promo calendar</li>
+          <li>We do not sell rankings or awards</li>
+        </ul>
+      </section>
+
+      <section className="mt-12 space-y-4">
+        <h2 className="text-xl font-medium">
+          Corrections &amp; Contributions
+        </h2>
+
+        <p>
+          QCMix welcomes corrections, additions, and historical context from the
+          community. Inclusion is based on relevance and accuracy, not visibility
+          or status.
+        </p>
+      </section>
+    </main>
+  );
+}
