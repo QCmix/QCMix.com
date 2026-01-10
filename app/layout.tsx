@@ -1,14 +1,9 @@
-import React from "react";
-import type { Metadata } from "next";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ClientProviders from "../components/ClientProviders";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "QCmix – Quad Cities Bartending & Music",
+export const metadata = {
+  title: "QCMix",
   description:
-    "QCmix connects Quad Cities bartenders, venues, musicians, and patrons.",
+    "QCMix is a platform and editorial hub for Quad Cities bartending and music culture.",
 };
 
 export default function RootLayout({
@@ -18,15 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900">
-        <ClientProviders>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </ClientProviders>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
