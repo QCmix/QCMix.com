@@ -1,7 +1,242 @@
 @import "tailwindcss";
 
-html,
+/* ==================================================
+   QCmix — Global Design System (LOCKED)
+   Editorial-first / Dark / Authority-led
+================================================== */
+
+/* --------------------------------------------------
+   Design Tokens
+-------------------------------------------------- */
+
+:root {
+  /* Text */
+  --qc-text-primary: 255 255 255;
+  --qc-text-secondary: 185 185 185;
+  --qc-text-muted: 145 145 145;
+
+  /* Backgrounds */
+  --qc-bg-primary: 0 0 0;
+  --qc-bg-elevated: 18 18 18;
+  --qc-bg-soft: 28 28 28;
+
+  /* Borders */
+  --qc-border-subtle: 255 255 255 / 0.08;
+
+  /* Accent (Energy — tightly controlled) */
+  --qc-accent: 255 211 0;
+}
+
+/* --------------------------------------------------
+   Base Reset & Rendering
+-------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  font-feature-settings: "ss01", "ss02", "liga", "kern";
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  min-height: 100%;
   margin: 0;
+  min-height: 100vh;
+
+  background-color: rgb(var(--qc-bg-primary));
+  color: rgb(var(--qc-text-primary));
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------
+   Typography Defaults (Publication Rhythm)
+-------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  color: rgb(var(--qc-text-secondary));
+}
+
+small {
+  color: rgb(var(--qc-text-muted));
+}
+
+/* Prevent overly long line lengths */
+article,
+.prose,
+.max-readable {
+  max-width: 65ch;
+}
+
+/* --------------------------------------------------
+   Links (Editorial, not SaaS)
+-------------------------------------------------- */
+
+a {
+  color: rgb(var(--qc-text-primary));
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(var(--qc-accent));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------
+   Media Defaults
+-------------------------------------------------- */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------
+   Selection
+-------------------------------------------------- */
+
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* --------------------------------------------------
+   Scrollbars (Subtle, Non-distracting)
+-------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--qc-bg-primary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* --------------------------------------------------
+   Accent Utilities (STRICT USE ONLY)
+-------------------------------------------------- */
+
+.accent-text {
+  color: rgb(var(--qc-accent));
+}
+
+.accent-border {
+  border-color: rgb(var(--qc-accent));
+}
+
+.accent-rule {
+  position: relative;
+}
+
+.accent-rule::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: rgb(var(--qc-accent));
+}
+
+/* --------------------------------------------------
+   Editorial Utility Helpers
+-------------------------------------------------- */
+
+/* Elevated surface (cards, rails) */
+.surface {
+  background-color: rgb(var(--qc-bg-elevated));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Muted metadata */
+.meta {
+  font-size: 0.875rem;
+  color: rgb(var(--qc-text-muted));
+}
+
+/* Section divider */
+.section-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------
+   QCmix — Image Treatment System (STEP 3)
+-------------------------------------------------- */
+
+/* Base editorial image */
+.qc-img {
+  background-color: rgb(var(--qc-bg-soft));
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  filter:
+    contrast(1.05)
+    brightness(0.92)
+    saturate(0.9);
+
+  position: relative;
+}
+
+/* Subtle grain overlay */
+.qc-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Muted images for rails */
+.qc-img-muted {
+  filter:
+    contrast(1.03)
+    brightness(0.9)
+    saturate(0.8);
+}
+
+/* --------------------------------------------------
+   Motion Discipline
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

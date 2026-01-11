@@ -1,34 +1,35 @@
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      {/* HERO */}
+    <main className="min-h-screen bg-black text-white antialiased">
+      {/* ================= HERO ================= */}
       <section className="border-b border-white/10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-16 md:grid-cols-12">
-          {/* Hero Editorial */}
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-12">
+          {/* Editorial Hero */}
           <div className="md:col-span-8">
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
               QC Nights
             </h1>
-            <p className="mt-4 max-w-xl text-lg text-white/70">
+
+            <p className="mt-6 max-w-2xl text-lg text-white/70">
               Bars, Bartenders, and Music That Matter in the Quad Cities.
             </p>
 
             {/* Featured Story */}
-            <article className="mt-10">
+            <article className="mt-14 max-w-2xl">
               <div className="aspect-[16/9] w-full rounded-lg bg-white/5" />
-              <h2 className="mt-4 text-2xl font-semibold">
+              <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
                 Inside the Nights That Shape the Quad Cities
               </h2>
-              <p className="mt-2 text-white/60">
+              <p className="mt-3 text-base leading-relaxed text-white/60">
                 A closer look at the venues, people, and performances defining
                 the current moment.
               </p>
             </article>
           </div>
 
-          {/* Right Rail */}
-          <aside className="md:col-span-4">
-            <div className="space-y-6">
+          {/* Desktop Rail */}
+          <aside className="hidden md:col-span-4 md:block">
+            <div className="space-y-8">
               <RailCard title="This Week" />
               <RailCard title="Featured Bar" />
               <RailCard title="Bartender Spotlight" />
@@ -38,19 +39,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EDITORIAL SPINE */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+      {/* ================= EDITORIAL SPINE ================= */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
           {/* Main Editorial Column */}
-          <div className="md:col-span-8 space-y-12">
+          <div className="md:col-span-8 space-y-16">
             <EditorialBlock />
             <EditorialBlock />
             <EditorialBlock compact />
           </div>
 
-          {/* Sticky Rail (Optional later) */}
-          <div className="md:col-span-4 hidden md:block">
-            <div className="sticky top-24 space-y-6">
+          {/* Sticky Desktop Rail */}
+          <div className="hidden md:col-span-4 md:block">
+            <div className="sticky top-28 space-y-8">
               <RailCard title="QC Recommended" />
               <RailCard title="Upcoming Coverage" />
             </div>
@@ -58,23 +59,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BARS */}
+      {/* ================= BARS ================= */}
       <SectionBlock title="Bars">
         <CardRow />
       </SectionBlock>
 
-      {/* BARTENDERS */}
+      {/* ================= BARTENDERS ================= */}
       <SectionBlock title="Bartenders">
         <CardRow />
       </SectionBlock>
 
-      {/* MUSIC */}
+      {/* ================= MUSIC ================= */}
       <SectionBlock title="Music">
         <CardRow />
       </SectionBlock>
 
-      {/* FOOTER STRIP */}
-      <footer className="border-t border-white/10 py-12">
+      {/* ================= MOBILE RAIL (DEFERRED) ================= */}
+      <section className="border-t border-white/10 py-16 md:hidden">
+        <div className="mx-auto max-w-7xl space-y-8 px-6">
+          <RailCard title="Featured Bar" />
+          <RailCard title="Bartender Spotlight" />
+          <RailCard title="Artist of the Week" />
+        </div>
+      </section>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="border-t border-white/10 py-14">
         <div className="mx-auto max-w-7xl px-6 text-sm text-white/50">
           © QCmix — Quad Cities Culture, Curated.
         </div>
@@ -83,16 +93,16 @@ export default function HomePage() {
   )
 }
 
-/* ---------- Components ---------- */
+/* ================= COMPONENTS ================= */
 
 function RailCard({ title }: { title: string }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/5 p-4">
-      <h3 className="text-sm font-semibold uppercase tracking-wide text-white/80">
+    <div className="rounded-lg border border-white/10 bg-white/5 p-5">
+      <h3 className="text-xs font-semibold uppercase tracking-widest text-white/60">
         {title}
       </h3>
-      <div className="mt-3 aspect-[4/3] w-full rounded bg-white/10" />
-      <p className="mt-3 text-sm text-white/60">
+      <div className="mt-4 aspect-[4/3] rounded bg-white/10" />
+      <p className="mt-4 text-sm leading-relaxed text-white/60">
         Editorial spotlight curated by QCmix.
       </p>
     </div>
@@ -101,13 +111,20 @@ function RailCard({ title }: { title: string }) {
 
 function EditorialBlock({ compact }: { compact?: boolean }) {
   return (
-    <article className="space-y-4">
-      <div className="aspect-[16/9] w-full rounded-lg bg-white/5" />
-      <h3 className={`font-semibold ${compact ? "text-xl" : "text-2xl"}`}>
+    <article className="max-w-2xl space-y-4">
+      <div className="aspect-[16/9] rounded-lg bg-white/5" />
+      <h3
+        className={`font-semibold tracking-tight ${
+          compact
+            ? "text-xl"
+            : "text-2xl sm:text-3xl"
+        }`}
+      >
         A Story That Explains the Scene
       </h3>
-      <p className="text-white/60">
-        Contextual reporting that focuses on why this moment matters.
+      <p className="text-base leading-relaxed text-white/60">
+        Contextual reporting focused on why this moment matters — not just
+        what happened.
       </p>
     </article>
   )
@@ -121,9 +138,11 @@ function SectionBlock({
   children: React.ReactNode
 }) {
   return (
-    <section className="border-t border-white/10 py-16">
+    <section className="border-t border-white/10 py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-8 text-3xl font-semibold">{title}</h2>
+        <h2 className="mb-10 text-3xl font-semibold tracking-tight md:text-4xl">
+          {title}
+        </h2>
         {children}
       </div>
     </section>
@@ -132,7 +151,7 @@ function SectionBlock({
 
 function CardRow() {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
       {Array.from({ length: 4 }).map((_, i) => (
         <div
           key={i}
