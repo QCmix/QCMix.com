@@ -19,7 +19,9 @@ export function Hero({
   cta_primary,
   cta_secondary,
 }: HeroProps) {
+  const isPrimaryHash = cta_primary.url.startsWith("#");
   const isPrimaryExternal = cta_primary.url.startsWith("http");
+  const isSecondaryHash = cta_secondary.url.startsWith("#");
   const isSecondaryExternal = cta_secondary.url.startsWith("http");
 
   return (
@@ -43,9 +45,18 @@ export function Hero({
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            {isPrimaryExternal ? (
+            {isPrimaryHash ? (
               <a
                 href={cta_primary.url}
+                className="px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
+              >
+                {cta_primary.label}
+              </a>
+            ) : isPrimaryExternal ? (
+              <a
+                href={cta_primary.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
               >
                 {cta_primary.label}
@@ -59,9 +70,18 @@ export function Hero({
               </Link>
             )}
 
-            {isSecondaryExternal ? (
+            {isSecondaryHash ? (
               <a
                 href={cta_secondary.url}
+                className="px-8 py-4 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 font-bold text-lg transition-colors"
+              >
+                {cta_secondary.label}
+              </a>
+            ) : isSecondaryExternal ? (
+              <a
+                href={cta_secondary.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 font-bold text-lg transition-colors"
               >
                 {cta_secondary.label}
