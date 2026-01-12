@@ -1,11 +1,9 @@
-import Nav from '../components/Nav'
 import { PageHeader, Feature, Grid } from '../components/Editorial'
 import { EditorialFooter } from '../components/Footer'
 
 export default function MusicPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      <Nav />
       <PageHeader
         title="Music"
         description="Live performance and the rooms that give it meaning."

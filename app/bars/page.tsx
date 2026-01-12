@@ -1,11 +1,9 @@
-import Nav from '../components/Nav'
 import { PageHeader, Feature, Grid } from '../components/Editorial'
 import { EditorialFooter } from '../components/Footer'
 
 export default function BarsPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      <Nav />
       <PageHeader
         title="Bars"
         description="The rooms and neighborhoods that shape Quad Cities nightlife."
