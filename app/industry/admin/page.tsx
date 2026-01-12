@@ -1,36 +1,24 @@
-'use client';
-
+import { getIndustryProfileServer } from "@/app/lib/getIndustryProfile";
 import { softGuard } from "@/app/lib/softGuard";
-import { getIndustryProfile } from "@/app/lib/getIndustryProfile";
 
 export default function IndustryAdminPage() {
-  const { role, state } = getIndustryProfile();
+  const { role, state } = getIndustryProfileServer();
 
-  const allowed = softGuard({
+  softGuard({
     role,
     state,
     capability: "admin",
+    redirectTo: "/industry/join",
   });
 
-  if (!allowed) {
-    return (
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-xl font-semibold">Restricted</h1>
-        <p className="mt-4 text-sm text-neutral-600">
-          Admin access is limited to trusted reviewers.
-        </p>
-      </main>
-    );
-  }
-
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="mx-auto max-w-4xl px-6 py-16">
       <header className="mb-12">
         <h1 className="text-3xl font-semibold tracking-tight">
-          Admin Dashboard
+          Industry Admin
         </h1>
         <p className="mt-4 max-w-2xl text-base text-neutral-600">
-          Internal tools for trusted reviewers and moderators.
+          Review and verify industry accounts.
         </p>
       </header>
 
@@ -65,3 +53,4 @@ export default function IndustryAdminPage() {
     </main>
   );
 }
+

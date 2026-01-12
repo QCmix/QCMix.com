@@ -1,80 +1,80 @@
 /**
  * Capability-based access control
- * Non-blocking: returns boolean, no redirects
- * Used for UI gating and soft restrictions
+ * Supports both UI gating (boolean) and redirects (throw)
  */
 
-import type { AccountState } from './session';
+import { redirect } from "next/navigation";
+import type { AccountState, IndustryRole } from './profile';
 
-export type UserRole = 'patron' | 'bartender' | 'musician' | 'distributor' | 'owner';
 export type Capability = 'verify' | 'post' | 'moderate' | 'admin';
 
 interface AccessRequest {
-  role: string;
-  state: AccountState | null;
+  role: IndustryRole;
+  state: AccountState;
   capability: Capability;
+  redirectTo?: string;
 }
 
 /**
  * Capability matrix (v1)
  * Defines who can do what based on role + account state
  */
-const capabilityMatrix: Record<UserRole, Record<AccountState, Capability[]>> = {
+const capabilityMatrix: Record<IndustryRole, Record<AccountState, Capability[]>> = {
   patron: {
     starter: [],
     verified: ['verify'],
     trusted: ['verify', 'post'],
     restricted: [],
-    suspended: [],
   },
   bartender: {
     starter: [],
     verified: ['verify'],
     trusted: ['verify', 'post', 'moderate'],
     restricted: [],
-    suspended: [],
   },
   musician: {
     starter: [],
     verified: ['verify'],
     trusted: ['verify', 'post'],
     restricted: [],
-    suspended: [],
   },
   distributor: {
     starter: [],
     verified: ['verify'],
     trusted: ['verify', 'post'],
     restricted: [],
-    suspended: [],
   },
   owner: {
     starter: [],
     verified: ['verify'],
     trusted: ['verify', 'post', 'moderate', 'admin'],
     restricted: [],
-    suspended: [],
+  },
+  worker: {
+    starter: [],
+    verified: ['verify'],
+    trusted: ['verify', 'post', 'moderate'],
+    restricted: [],
   },
 };
 
 /**
- * softGuard: Check if user has capability
- * Returns boolean (no redirect, no throw)
- * Safe for client-side gating
+ * Check if user has capability
+ * If redirectTo provided and not allowed, redirect
+ * Otherwise return boolean
  */
-export function softGuard({ role, state, capability }: AccessRequest): boolean {
-  // No session = no capabilities
-  if (state === null) {
-    return false;
+export function softGuard({
+  role,
+  state,
+  capability,
+  redirectTo,
+}: AccessRequest): boolean {
+  const capabilities = capabilityMatrix[role]?.[state] || [];
+  const allowed = capabilities.includes(capability);
+
+  if (!allowed && redirectTo) {
+    redirect(redirectTo);
   }
 
-  const userRole = role as UserRole;
-  const matrix = capabilityMatrix[userRole];
-
-  if (!matrix) {
-    return false;
-  }
-
-  const capabilities = matrix[state] || [];
-  return capabilities.includes(capability);
+  return allowed;
 }
