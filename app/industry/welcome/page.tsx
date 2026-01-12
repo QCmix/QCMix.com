@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { softGuard } from "@/app/lib/softGuard";
-import { getSessionState } from "@/app/lib/session";
+import { getIndustryProfile } from "@/app/lib/getIndustryProfile";
 
 export default function IndustryWelcomePage() {
-  // TEMP v1: role/state are placeholders until persistence is wired
-  const role = "bartender";      // later: from profile/session
-  const state = getSessionState() ?? "starter";
+  const { role, state } = getIndustryProfile();
 
   const canVerify = softGuard({ role, state, capability: "verify" });
   const canPost = softGuard({ role, state, capability: "post" });

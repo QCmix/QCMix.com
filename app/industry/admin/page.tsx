@@ -1,12 +1,10 @@
 'use client';
 
 import { softGuard } from "@/app/lib/softGuard";
-import { getSessionState } from "@/app/lib/session";
+import { getIndustryProfile } from "@/app/lib/getIndustryProfile";
 
 export default function IndustryAdminPage() {
-  // TEMP v1: role/state are placeholders until persistence is wired
-  const role = "owner";      // later: from profile/session
-  const state = getSessionState() ?? "starter";
+  const { role, state } = getIndustryProfile();
 
   const allowed = softGuard({
     role,
