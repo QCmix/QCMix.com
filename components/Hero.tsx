@@ -25,24 +25,31 @@ export function Hero({
   const isSecondaryExternal = cta_secondary.url.startsWith("http");
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-slate-900 to-slate-950" />
+    <section className="hero">
+      {/* Rotating background images */}
+      <div className="hero-bg hero-bg--1" />
+      <div className="hero-bg hero-bg--2" />
+      <div className="hero-bg hero-bg--3" />
+      
+      {/* Dark overlay */}
+      <div className="hero-overlay" />
 
-      <div className="relative max-w-6xl mx-auto px-6 py-20">
-        <div className="text-center space-y-8">
-          <div className="space-y-4">
-            <h1 className="text-6xl md:text-7xl font-black tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
-                {headline.split(".")[0]}.
-              </span>
-              <br />
-              {headline.split(".").slice(1).join(".")}
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              {subheadline}
-            </p>
-          </div>
+      {/* Content */}
+      <div className="hero-content relative min-h-screen flex items-center justify-center">
+        <div className="relative max-w-6xl mx-auto px-6 py-20">
+          <div className="text-center space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-7xl font-black tracking-tight leading-tight">
+                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                  {headline.split(".")[0]}.
+                </span>
+                <br />
+                {headline.split(".").slice(1).join(".")}
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                {subheadline}
+              </p>
+            </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             {isPrimaryHash ? (
@@ -109,11 +116,12 @@ export function Hero({
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="text-center text-slate-500">
-          <p className="text-xs uppercase tracking-wide mb-2">Scroll to explore</p>
-          <div className="text-lg">↓</div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" style={{ zIndex: 10 }}>
+          <div className="text-center text-slate-500">
+            <p className="text-xs uppercase tracking-wide mb-2">Scroll to explore</p>
+            <div className="text-lg">↓</div>
+          </div>
         </div>
       </div>
     </section>
