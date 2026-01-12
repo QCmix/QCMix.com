@@ -258,30 +258,19 @@ svg {
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  animation: heroFade 15s infinite;
 }
 
 /* Individual images with staggered delays */
 .hero-bg--1 {
-  background-image: url('/images/herohome.jpg');
-  animation-delay: 0s;
+  background-image: url('/images/hero/herohome.jpg');
 }
 
 .hero-bg--2 {
-  background-image: url('/images/herohome2.jpg');
-  animation-delay: 5s;
+  background-image: url('/images/hero/herohome2.jpg');
 }
 
 .hero-bg--3 {
-  background-image: url('/images/herohome3.jpg');
-  animation-delay: 10s;
-}
-
-/* Crossfade keyframes */
-@keyframes heroFade {
-  0%, 25% { opacity: 1; }
-  33.33%, 100% { opacity: 0; }
+  background-image: url('/images/hero/herohome3.jpg');
 }
 
 /* Dark overlay */
