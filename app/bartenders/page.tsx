@@ -1,14 +1,24 @@
+import { GlobalNav } from '../components/Nav'
+import { PageHeader, Feature, Grid } from '../components/Editorial'
+
 export default function BartendersPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      <section className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">Bartenders</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/70">
-            Career paths, longevity, and the people behind the bar.
-          </p>
-        </div>
-      </section>
+      <GlobalNav />
+      <PageHeader
+        title="Bartenders"
+        description="Career paths and the people who keep the rooms running."
+      />
+      <Feature
+        title="A 15-Year Bartender Still Showing Up"
+        description="Why longevity matters more than novelty behind the bar."
+      />
+      <Grid
+        title="Bartender Spotlights"
+        items={[
+          { title: 'Veteran Bartender', description: 'Editorial profile focused on longevity.' },
+        ]}
+      />
     </main>
   )
 }

@@ -1,14 +1,25 @@
+import { GlobalNav } from '../components/Nav'
+import { PageHeader, Feature, Grid } from '../components/Editorial'
+
 export default function BarsPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      <section className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">Bars</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/70">
-            The rooms, layouts, and neighborhoods that shape nightlife in the Quad Cities.
-          </p>
-        </div>
-      </section>
+      <GlobalNav />
+      <PageHeader
+        title="Bars"
+        description="The rooms and neighborhoods that shape Quad Cities nightlife."
+      />
+      <Feature
+        title="Raccoon Motel"
+        description="A small room that punches above its weight in consistency and sound."
+      />
+      <Grid
+        title="QC Recommended Bars"
+        items={[
+          { title: 'Raccoon Motel', description: 'Editorial feature on room-driven longevity.' },
+          { title: 'Local Venue', description: 'Paid placement example.', isPaid: true },
+        ]}
+      />
     </main>
   )
 }

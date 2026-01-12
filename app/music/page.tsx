@@ -1,14 +1,24 @@
+import { GlobalNav } from '../components/Nav'
+import { PageHeader, Feature, Grid } from '../components/Editorial'
+
 export default function MusicPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      <section className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">Music</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/70">
-            Live performance and the rooms that give it meaning.
-          </p>
-        </div>
-      </section>
+      <GlobalNav />
+      <PageHeader
+        title="Music"
+        description="Live performance and the rooms that give it meaning."
+      />
+      <Feature
+        title="A Quiet Tuesday That Worked"
+        description="Why smaller crowds don’t mean weaker shows."
+      />
+      <Grid
+        title="Recent Performances"
+        items={[
+          { title: 'Local Band at Raccoon Motel', description: 'Performance-first editorial coverage.' },
+        ]}
+      />
     </main>
   )
 }
