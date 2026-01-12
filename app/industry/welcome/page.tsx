@@ -1,6 +1,17 @@
+'use client';
+
 import Link from "next/link";
+import { softGuard } from "@/app/lib/softGuard";
+import { getSessionState } from "@/app/lib/session";
 
 export default function IndustryWelcomePage() {
+  // TEMP v1: role/state are placeholders until persistence is wired
+  const role = "bartender";      // later: from profile/session
+  const state = getSessionState() ?? "starter";
+
+  const canVerify = softGuard({ role, state, capability: "verify" });
+  const canPost = softGuard({ role, state, capability: "post" });
+
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
       <header className="mb-12">
@@ -23,12 +34,18 @@ export default function IndustryWelcomePage() {
             Verification increases trust and unlocks role-based access.
             Required for under-21 exceptions.
           </p>
-          <Link
-            href="/industry/join/verify"
-            className="mt-4 inline-flex text-sm font-medium text-neutral-900 underline"
-          >
-            Continue verification
-          </Link>
+          {canVerify ? (
+            <Link
+              href="/industry/join/verify"
+              className="mt-4 inline-flex text-sm font-medium text-neutral-900 underline"
+            >
+              Continue verification
+            </Link>
+          ) : (
+            <span className="mt-4 inline-block text-sm text-neutral-500">
+              Verification is not available in your current state.
+            </span>
+          )}
         </div>
 
         <div className="rounded-lg border border-neutral-200 p-6">
@@ -39,9 +56,16 @@ export default function IndustryWelcomePage() {
             Participation unlocks through consistency, contribution,
             and clean conduct — not payment alone.
           </p>
-          <span className="mt-4 inline-block text-sm text-neutral-500">
-            Available after verification
-          </span>
+          {!canPost && (
+            <p className="mt-4 text-sm text-neutral-500">
+              Posting unlocks after verification.
+            </p>
+          )}
+          {canPost && (
+            <span className="mt-4 inline-block text-sm text-neutral-500">
+              Available now
+            </span>
+          )}
         </div>
 
         <div className="rounded-lg border border-neutral-200 p-6">
