@@ -11,34 +11,31 @@ export default function HomePage() {
         <div className="relative max-w-6xl mx-auto px-6 py-20">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <p className="text-sm font-bold text-purple-400 uppercase tracking-widest">
-                The Connected Nightlife Platform
-              </p>
               <h1 className="text-6xl md:text-7xl font-black tracking-tight leading-tight">
-                Quad Cities
-                <br />
                 <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
-                  Connected. Transparent. Local.
+                  Stop guessing.
                 </span>
+                <br />
+                Start seeing.
               </h1>
               <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                A shared platform where bars, bartenders, musicians, staff, distributors, and promoters can actually see each other — and build stronger nights together.
+                QCMix connects bars, bartenders, musicians, and promoters across the Quad Cities — so you know who's real before you work together.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Link
-                href="/industry-join"
-                className="px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
-              >
-                Join the Industry
-              </Link>
               <a
                 href="#explore"
-                className="px-8 py-4 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 font-bold text-lg transition-colors"
+                className="px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
               >
                 Explore the Scene
               </a>
+              <Link
+                href="/industry-join"
+                className="px-8 py-4 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 font-bold text-lg transition-colors"
+              >
+                Join as Industry
+              </Link>
             </div>
 
             <div className="pt-12 text-slate-400 text-sm">
