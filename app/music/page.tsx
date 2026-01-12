@@ -1,5 +1,6 @@
 import { GlobalNav } from '../components/Nav'
 import { PageHeader, Feature, Grid } from '../components/Editorial'
+import { EditorialFooter } from '../components/Footer'
 
 export default function MusicPage() {
   return (
@@ -16,9 +17,13 @@ export default function MusicPage() {
       <Grid
         title="Recent Performances"
         items={[
-          { title: 'Local Band at Raccoon Motel', description: 'Performance-first editorial coverage.' },
+          {
+            title: 'Local band at Raccoon Motel',
+            description: 'A focused set in a half-full room that still landed.'
+          },
         ]}
       />
+      <EditorialFooter />
     </main>
   )
 }

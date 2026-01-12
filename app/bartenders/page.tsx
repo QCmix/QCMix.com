@@ -1,5 +1,6 @@
 import { GlobalNav } from '../components/Nav'
 import { PageHeader, Feature, Grid } from '../components/Editorial'
+import { EditorialFooter } from '../components/Footer'
 
 export default function BartendersPage() {
   return (
@@ -10,15 +11,19 @@ export default function BartendersPage() {
         description="Career paths and the people who keep the rooms running."
       />
       <Feature
-        title="A 15-Year Bartender Still Showing Up"
-        description="Why longevity matters more than novelty behind the bar."
+        title="A Career Bartender, Fifteen Years In"
+        description="Still working five nights a week, prioritizing consistency over attention."
       />
       <Grid
         title="Bartender Spotlights"
         items={[
-          { title: 'Veteran Bartender', description: 'Editorial profile focused on longevity.' },
+          {
+            title: 'Mid-career bartender, downtown Davenport',
+            description: 'Fifteen years behind the bar, no management title, no brand deals.'
+          },
         ]}
       />
+      <EditorialFooter />
     </main>
   )
 }

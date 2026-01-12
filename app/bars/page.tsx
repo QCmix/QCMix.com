@@ -1,5 +1,6 @@
 import { GlobalNav } from '../components/Nav'
 import { PageHeader, Feature, Grid } from '../components/Editorial'
+import { EditorialFooter } from '../components/Footer'
 
 export default function BarsPage() {
   return (
@@ -11,7 +12,7 @@ export default function BarsPage() {
       />
       <Feature
         title="Raccoon Motel"
-        description="A small room that punches above its weight in consistency and sound."
+        description="A small room that prioritizes sound, booking consistency, and audience trust."
       />
       <Grid
         title="QC Recommended Bars"
@@ -20,6 +21,7 @@ export default function BarsPage() {
           { title: 'Local Venue', description: 'Paid placement example.', isPaid: true },
         ]}
       />
+      <EditorialFooter />
     </main>
   )
 }
