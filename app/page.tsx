@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-export const dynamic = 'force-dynamic'; // Ensures random hero on each visit
+export const dynamic = 'force-dynamic';
 
 // ============================================
-// IMAGE CONFIGURATION
+// DATA CONFIGURATION
 // ============================================
 
 const heroImages = [
@@ -12,49 +13,94 @@ const heroImages = [
   '/images/hero/herohome3.jpg',
 ];
 
+const features = [
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+      </svg>
+    ),
+    title: 'Explore Real Venues',
+    description: 'Browse verified Quad Cities bars and venues. See who runs them, who works there, and what kind of nights they\'re known for.',
+    link: '/explore',
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+      </svg>
+    ),
+    title: 'Discover Local Music',
+    description: 'Find bands playing real rooms — not promo noise. See where they play, how often, and who they work with.',
+    link: '/music',
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+      </svg>
+    ),
+    title: 'Read the Editorial',
+    description: 'Coverage on bartending, bar operations, live music, and nightlife culture — written for people inside the scene.',
+    link: '/editorial',
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+      </svg>
+    ),
+    title: 'Understand the Ecosystem',
+    description: 'See how the Quad Cities nightlife actually functions across Iowa and Illinois — who connects to who, and why it works.',
+    link: '/about',
+  },
+];
+
 const roleCards = [
   {
     title: 'Bars & Owners',
     image: '/images/roles/Bars & Owners.jpg',
-    alt: 'Bar owner managing nightlife venue operations',
-    body: 'Access experienced bartenders, musicians, distributors, and promoters in one place. Be known as a bar that\'s run well, treats people right, and shows up every day.',
+    description: 'Access experienced bartenders, musicians, distributors, and promoters in one place. Be known as a bar that\'s run well, treats people right, and shows up every day.',
     tagline: 'Good bars attract good people.',
   },
   {
     title: 'Bartenders & Bar Staff',
     image: '/images/roles/Bartenders & Bar Staff.jpg',
-    alt: 'Bartender expertly crafting drinks behind the bar',
-    body: 'Find bars that are organized, respectful, and consistent. See management styles before walking in blind. Build a professional presence tied to real venues.',
+    description: 'Find bars that are organized, respectful, and consistent. See management styles before walking in blind. Build a professional presence tied to real venues.',
     tagline: 'Where you work matters.',
   },
   {
     title: 'Musicians & Bands',
     image: '/images/roles/Musicians & Bands.jpg',
-    alt: 'Live band performing on stage at a venue',
-    body: 'Get direct visibility to venues and decision-makers. Be connected to rooms that actually book. Build momentum in the scene you\'re part of.',
+    description: 'Get direct visibility to venues and decision-makers. Be connected to rooms that actually book. Build momentum in the scene you\'re part of.',
     tagline: 'Play the right rooms. Grow the right way.',
   },
   {
     title: 'Distributors & Industry Partners',
     image: '/images/roles/Distributors & Industry Partners.jpg',
-    alt: 'Industry professional discussing distribution partnership',
-    body: 'Understand the landscape before selling into it. See active venues, real teams, and how the scene moves.',
+    description: 'Understand the landscape before selling into it. See active venues, real teams, and how the scene moves.',
     tagline: 'Context beats cold calls.',
   },
   {
     title: 'Promoters',
     image: '/images/roles/Promoters.jpg',
-    alt: 'Event promoter coordinating live music night',
-    body: 'Align venues, bands, and audiences without guessing. Build better shows by knowing the room, the people, and the culture.',
+    description: 'Align venues, bands, and audiences without guessing. Build better shows by knowing the room, the people, and the culture.',
     tagline: 'Better alignment makes better nights.',
   },
   {
     title: 'The Community',
     image: '/images/roles/The Community.jpg',
-    alt: 'Diverse community members enjoying nightlife together',
-    body: 'Explore what\'s really happening. Discover venues you\'ll love. Connect with the scene you\'re part of.',
+    description: 'Explore what\'s really happening. Discover venues you\'ll love. Connect with the scene you\'re part of.',
     tagline: 'Your night starts here.',
   },
+];
+
+const transparencyPoints = [
+  'Weak operations fade out',
+  'Strong teams rise',
+  'Accountability becomes culture',
+  'The people who care get recognized',
 ];
 
 const editorialArticles = [
@@ -62,179 +108,208 @@ const editorialArticles = [
     category: 'ECOSYSTEM',
     title: 'The Quad Cities Nightlife Ecosystem',
     image: '/images/editorial/The Quad Cities Nightlife Ecosystem.jpg',
-    alt: 'Map showing the interconnected Quad Cities nightlife ecosystem',
     slug: '/editorial/qc-nightlife-ecosystem',
   },
   {
     category: 'OPERATIONS',
     title: 'What a Night Actually Looks Like — Open to Close',
     image: '/images/sections/Editorial Section.jpg',
-    alt: 'Behind-the-scenes view of a night\'s operations at a venue',
     slug: '/editorial/open-to-close',
   },
   {
     category: 'MUSIC',
     title: 'Why Regional Music Scenes Still Matter',
     image: '/images/editorial/Why Regional Music Still Matters.jpg',
-    alt: 'Musicians performing in a regional music venue',
     slug: '/editorial/regional-music-scenes',
   },
   {
     category: 'CULTURE',
     title: 'Behind the Bar: The Work You Don\'t See',
-    image: '/images/sections/Atmospheric.jpg',
-    alt: 'Atmospheric view of venue culture and bar environment',
+    image: '/images/roles/Bartenders & Bar Staff.jpg',
     slug: '/editorial/behind-the-bar',
   },
 ];
 
-const sectionImages = {
-  transparency: '/images/sections/Transparency Section.jpg',
-  whyExists: '/images/sections/Why QCMix Exists.jpg',
-  joinCta: '/images/sections/Editorial Section.jpg',
-};
+const missionPoints = [
+  'Connect the right people',
+  'Reduce friction',
+  'Reward professionalism',
+  'Strengthen the Quad Cities nightlife long-term',
+];
+
+const industryRoles = [
+  'Bar Owner / Management',
+  'Bartender',
+  'Bar Staff',
+  'Musician / Band',
+  'Distributor / Partner',
+  'Promoter',
+];
 
 // ============================================
 // PAGE COMPONENT
 // ============================================
 
 export default function HomePage() {
-  // Random hero image selection (server-side)
   const randomHero = heroImages[Math.floor(Math.random() * heroImages.length)];
+
   return (
-    <main className="bg-slate-950 text-slate-50">
+    <main className="bg-[#08080f] text-white overflow-hidden">
+      
       {/* ==================== HERO ==================== */}
-      <section className="hero">
-        <div className="hero-bg">
+      <section className="relative min-h-[100vh] flex items-center justify-center">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
           <Image
             src={randomHero}
             alt="QCMix platform connecting bars, musicians, and nightlife professionals in the Quad Cities"
             fill
             priority
-            quality={85}
-            style={{ objectFit: 'cover' }}
+            quality={90}
+            className="object-cover"
           />
-          <div className="hero-overlay" />
+          {/* Multi-layer overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08080f]/80 via-[#08080f]/40 to-[#08080f]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08080f]/60 via-transparent to-[#08080f]/60" />
         </div>
-        <div className="hero-content relative min-h-screen flex items-center justify-center z-10">
-          <div className="max-w-6xl mx-auto px-6 py-20 text-center space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl font-black tracking-tight leading-tight">
-                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
-                  Stop guessing.
-                </span>
-                <br />
-                Start seeing.
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                QCMix connects bars, bartenders, musicians, and promoters across the
-                Quad Cities — so you know who's real before you work together.
-              </p>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <a href="/explore" className="px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50">
-                Explore the Scene
-              </a>
-              <a href="/join" className="px-8 py-4 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 font-bold text-lg transition-colors">
-                Join as Industry
-              </a>
-            </div>
-
-            <div className="pt-12 text-slate-400 text-sm">
-              <p>Featured In</p>
-              <div className="flex justify-center gap-8 mt-4 opacity-60">
-                <span>Cedar Rapids Scene</span>
-                <span>•</span>
-                <span>Iowa Music Network</span>
-                <span>•</span>
-                <span>Local Industry Leaders</span>
-              </div>
-            </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24 pb-32">
+          <p className="text-violet-400 font-medium tracking-wider uppercase text-sm mb-6 animate-fade-in-up">
+            Quad Cities Nightlife Platform
+          </p>
+          
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
+            <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              Stop guessing.
+            </span>
+            <span className="block bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mt-2">
+              Start seeing.
+            </span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-12 font-light">
+            QCMix connects bars, bartenders, musicians, and promoters across the Quad Cities — so you know who's real before you work together.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link 
+              href="/explore" 
+              className="group relative px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-105"
+            >
+              <span className="relative z-10">Explore the Scene</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Link>
+            
+            <Link 
+              href="/join" 
+              className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full font-semibold text-lg hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            >
+              Join as Industry
+            </Link>
           </div>
+        </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
-            <div className="text-center text-slate-500">
-              <p className="text-xs uppercase tracking-wide mb-2">Scroll to explore</p>
-              <div className="text-lg">↓</div>
-            </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center gap-3 text-white/40">
+            <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
+            <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
           </div>
         </div>
       </section>
 
-      {/* ==================== WHAT YOU CAN DO ==================== */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">What You Can Do Here</h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+      {/* ==================== FEATURES ==================== */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              What You Can Do Here
+            </h2>
+            <p className="text-xl text-white/50 max-w-xl mx-auto">
               No account required. Start exploring the Quad Cities nightlife immediately.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-lg border border-slate-800 bg-gradient-to-br from-slate-800/30 to-slate-900/40 backdrop-blur-sm p-8 hover:border-slate-700 transition-all hover:bg-slate-800/40">
-              <div className="text-4xl mb-4">🏢</div>
-              <h3 className="text-lg font-bold mb-3">Explore Real Venues</h3>
-              <p className="text-slate-400 text-sm">
-                Browse verified Quad Cities bars and venues. See who runs them, who works there, and what kind of nights they're known for.
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-slate-800 bg-gradient-to-br from-slate-800/30 to-slate-900/40 backdrop-blur-sm p-8 hover:border-slate-700 transition-all hover:bg-slate-800/40">
-              <div className="text-4xl mb-4">🎵</div>
-              <h3 className="text-lg font-bold mb-3">Discover Local Music</h3>
-              <p className="text-slate-400 text-sm">
-                Find bands playing real rooms — not promo noise. See where they play, how often, and who they work with.
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-slate-800 bg-gradient-to-br from-slate-800/30 to-slate-900/40 backdrop-blur-sm p-8 hover:border-slate-700 transition-all hover:bg-slate-800/40">
-              <div className="text-4xl mb-4">📰</div>
-              <h3 className="text-lg font-bold mb-3">Read the Editorial</h3>
-              <p className="text-slate-400 text-sm">
-                Coverage on bartending, bar operations, live music, and nightlife culture — written for people inside the scene.
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-slate-800 bg-gradient-to-br from-slate-800/30 to-slate-900/40 backdrop-blur-sm p-8 hover:border-slate-700 transition-all hover:bg-slate-800/40">
-              <div className="text-4xl mb-4">🔗</div>
-              <h3 className="text-lg font-bold mb-3">Understand the Ecosystem</h3>
-              <p className="text-slate-400 text-sm">
-                See how the Quad Cities nightlife actually functions across Iowa and Illinois — who connects to who, and why it works when it works.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <Link
+                key={feature.title}
+                href={feature.link}
+                className="group p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500 hover:-translate-y-2"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center text-violet-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-violet-300 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-white/50 leading-relaxed text-sm">
+                  {feature.description}
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-violet-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span>Explore</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ==================== STATEMENT BANNER ==================== */}
-      <section className="py-16 border-t border-slate-800">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-4">
-          <h2 className="text-5xl md:text-6xl font-black tracking-tight">
-            Five cities. Many roles. Shared visibility.
-          </h2>
-          <p className="text-xl text-slate-300 leading-relaxed">
-            QCMix isn't built for one side of the bar. It's built for the whole ecosystem.
-          </p>
-        </div>
-      </section>
-
       {/* ==================== ROLE CARDS ==================== */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {roleCards.map((role) => (
+      <section className="py-32 px-6 relative">
+        {/* Subtle background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <p className="text-violet-400 font-medium tracking-wider uppercase text-sm mb-4">
+              Built for the whole ecosystem
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              One City. Many Roles.
+            </h2>
+            <p className="text-xl text-white/50 max-w-2xl mx-auto">
+              QCMix isn't built for one side of the bar. It's built for everyone who makes the night work.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {roleCards.map((role, index) => (
               <div
                 key={role.title}
-                className="rounded-lg border border-slate-800 bg-gradient-to-br from-slate-800/30 to-slate-900/40 backdrop-blur-sm p-8 hover:border-slate-700 transition-all hover:bg-slate-800/40 flex flex-col"
+                className="group relative rounded-3xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500"
               >
-                <h3 className="text-lg font-bold mb-4">{role.title}</h3>
-                <p className="text-slate-400 text-sm mb-6 flex-grow">{role.body}</p>
-                <p className="text-purple-400 font-semibold text-sm italic">
-                  "{role.tagline}"
-                </p>
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={role.image}
+                    alt={role.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] via-[#0d0d16]/50 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="relative p-8 -mt-12">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-violet-300 transition-colors">
+                    {role.title}
+                  </h3>
+                  <p className="text-white/50 leading-relaxed mb-6 text-sm">
+                    {role.description}
+                  </p>
+                  <p className="text-violet-400 font-medium text-sm">
+                    "{role.tagline}"
+                  </p>
+                </div>
+
+                {/* Hover glow */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-t from-violet-600/5 to-transparent" />
               </div>
             ))}
           </div>
@@ -242,205 +317,272 @@ export default function HomePage() {
       </section>
 
       {/* ==================== TRANSPARENCY ==================== */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-4xl mx-auto px-6 space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight">
-              Transparency builds stronger nights.
-            </h2>
-            <p className="text-xl text-slate-300 leading-relaxed">
-              QCMix is built on visibility. When everyone can see how the scene actually works:
-            </p>
-          </div>
+      <section className="relative py-40 px-6">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/sections/Transparency Section.jpg"
+            alt="Transparency Section"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[#08080f]/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-950/30 to-indigo-950/30" />
+        </div>
 
-          <div className="space-y-3">
-            {[
-              'Weak operations fade out',
-              'Strong teams rise',
-              'Accountability becomes culture',
-              'The people who care get recognized',
-            ].map((point) => (
-              <div key={point} className="flex gap-4">
-                <div className="text-purple-400 font-bold text-lg flex-shrink-0">✓</div>
-                <p className="text-lg text-slate-200">{point}</p>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+            Transparency builds
+            <br />
+            <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+              stronger nights.
+            </span>
+          </h2>
+          
+          <p className="text-xl text-white/60 mb-16 max-w-2xl mx-auto">
+            QCMix is built on visibility. When everyone can see how the scene actually works:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
+            {transparencyPoints.map((point) => (
+              <div
+                key={point}
+                className="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06]"
+              >
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 text-emerald-400">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                </div>
+                <span className="text-white/90 font-medium">{point}</span>
               </div>
             ))}
           </div>
 
-          <p className="text-lg text-slate-300 italic pt-4 border-t border-slate-800">
+          <p className="text-white/40 max-w-2xl mx-auto leading-relaxed italic">
             This platform is for owners who give a damn, bartenders who take pride in their craft, musicians who put in the work, and partners who respect the ecosystem.
           </p>
         </div>
       </section>
 
       {/* ==================== EDITORIAL ==================== */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">From the Editorial</h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <p className="text-violet-400 font-medium tracking-wider uppercase text-sm mb-4">
+              Stories from the scene
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              From the Editorial
+            </h2>
+            <p className="text-xl text-white/50 max-w-xl mx-auto">
               Real stories from inside the Quad Cities nightlife.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {editorialArticles.map((article) => (
-              <a
+              <Link
                 key={article.slug}
                 href={article.slug}
-                className="group rounded-lg border border-slate-800 bg-gradient-to-br from-slate-800/30 to-slate-900/40 backdrop-blur-sm p-8 hover:border-slate-700 transition-all hover:bg-slate-800/40"
+                className="group relative rounded-2xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/20 transition-all duration-300"
               >
-                <h3 className="text-lg font-bold group-hover:text-purple-400 transition-colors">
-                  {article.title}
-                </h3>
-                <p className="mt-4 text-slate-400 text-sm group-hover:text-slate-300 transition-colors">
-                  Read →
-                </p>
-              </a>
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="text-xs font-semibold tracking-wider text-violet-400 uppercase">
+                    {article.category}
+                  </span>
+                  <h3 className="text-lg font-semibold mt-2 mb-4 leading-snug group-hover:text-violet-300 transition-colors">
+                    {article.title}
+                  </h3>
+                  <span className="text-sm text-white/40 group-hover:text-violet-400 transition-colors flex items-center gap-2">
+                    Read
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
 
-          <div className="text-center">
-            <a
+          <div className="text-center mt-12">
+            <Link
               href="/editorial"
-              className="inline-block px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 text-white/80 hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-medium"
             >
               Read the Editorial
-            </a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ==================== WHY QCMIX EXISTS ==================== */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-4xl mx-auto px-6 space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight">
+      <section className="relative py-40 px-6">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/sections/Why QCMix Exists.jpg"
+            alt="Why QCMix Exists"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[#08080f]/95" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Why QCMix Exists
             </h2>
-            <p className="text-xl text-slate-300 leading-relaxed">
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">
               QCMix was built by people inside the scene — not outsiders trying to monetize it.
             </p>
           </div>
 
-          <div className="space-y-3">
-            {[
-              'Connect the right people',
-              'Reduce friction',
-              'Reward professionalism',
-              'Strengthen the Quad Cities nightlife long-term',
-            ].map((point) => (
-              <div key={point} className="flex gap-4">
-                <div className="text-purple-400 font-bold text-lg flex-shrink-0">✓</div>
-                <p className="text-lg text-slate-200">{point}</p>
-              </div>
-            ))}
-          </div>
+          <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.06] rounded-3xl p-10 md:p-14">
+            <p className="text-white/50 uppercase tracking-wider text-sm font-medium mb-8">
+              It exists to:
+            </p>
 
-          <p className="text-lg text-slate-300 italic pt-4 border-t border-slate-800">
-            No hype cycles. No influencer nonsense. Just real infrastructure for a real scene.
-          </p>
+            <div className="space-y-5 mb-12">
+              {missionPoints.map((point) => (
+                <div key={point} className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 text-violet-400">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <span className="text-lg text-white/80">{point}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-8 border-t border-white/[0.06]">
+              <p className="text-white/30 text-center leading-relaxed">
+                No hype cycles. No influencer nonsense.
+                <br />
+                <span className="text-white/50 font-medium">Just real infrastructure for a real scene.</span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ==================== INDUSTRY JOIN CTA ==================== */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-4xl mx-auto px-6 space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight">
-              Industry Join
-            </h2>
-            <p className="text-xl text-slate-300 leading-relaxed">
-              If you're part of the scene — this is your platform.
-            </p>
+      <section className="relative py-40 px-6">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/sections/Atmospheric.jpg"
+            alt="Industry Join Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-[#08080f]/90 to-[#08080f]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-violet-950/20 to-indigo-950/20" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Industry Join
+          </h2>
+          <p className="text-xl text-white/60 mb-12 max-w-xl mx-auto">
+            If you're part of the scene — this is your platform.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {industryRoles.map((role) => (
+              <span
+                key={role}
+                className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/70"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-emerald-400">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                {role}
+              </span>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-200">For:</h3>
-              <ul className="space-y-3">
-                {[
-                  'Bar Owner / Management',
-                  'Bartender',
-                  'Bar Staff (Security, Door, BOH)',
-                  'Musician / Band',
-                  'Distributor / Partner',
-                ].map((role) => (
-                  <li key={role} className="flex gap-3">
-                    <span className="text-purple-400 font-bold">•</span>
-                    <span className="text-slate-300">{role}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <p className="text-white/40 mb-10">
+            Start basic. Verify when ready. Build your presence over time.
+          </p>
 
-            <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-200">How it works:</h3>
-              <ol className="space-y-3">
-                {[
-                  'Start basic.',
-                  'Verify when ready.',
-                  'Build your presence over time.',
-                ].map((step, idx) => (
-                  <li key={idx} className="flex gap-3">
-                    <span className="text-purple-400 font-bold">{idx + 1}.</span>
-                    <span className="text-slate-300">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="/join"
-              className="inline-block px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
-            >
-              Join the Industry
-            </a>
-          </div>
+          <Link
+            href="/join"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full font-semibold text-lg hover:shadow-[0_0_50px_rgba(139,92,246,0.4)] hover:scale-105 transition-all duration-300"
+          >
+            Join the Industry
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
         </div>
       </section>
 
       {/* ==================== FOOTER ==================== */}
-      <footer className="border-t border-slate-800 py-20 bg-gradient-to-b from-slate-900 to-slate-950">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-            <div className="space-y-2">
-              <h3 className="text-4xl font-black tracking-tight">QCMix</h3>
-              <div className="space-y-1">
-                <p className="text-slate-300 text-sm">Independent.</p>
-                <p className="text-slate-300 text-sm">Quad Cities focused.</p>
-                <p className="text-slate-300 text-sm">
-                  Built for bars, bartenders, musicians, and the people who make nightlife work.
-                </p>
-              </div>
+      <footer className="py-20 px-6 border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                QCMix
+              </h3>
+              <p className="text-white/40 text-sm leading-relaxed">
+                Independent. Quad Cities focused. Built for bars, bartenders, musicians, and the people who make nightlife work.
+              </p>
             </div>
 
-            <div className="flex gap-12">
-              <div className="space-y-3">
-                <a href="/explore" className="block text-slate-300 hover:text-purple-400 transition-colors text-sm">
-                  Explore
-                </a>
-                <a href="/editorial" className="block text-slate-300 hover:text-purple-400 transition-colors text-sm">
-                  Editorial
-                </a>
-              </div>
-              <div className="space-y-3">
-                <a href="/join" className="block text-slate-300 hover:text-purple-400 transition-colors text-sm">
-                  Join
-                </a>
-                <a href="/about" className="block text-slate-300 hover:text-purple-400 transition-colors text-sm">
-                  About
-                </a>
-              </div>
+            {/* Links */}
+            <div>
+              <h4 className="font-semibold mb-4 text-white/80">Explore</h4>
+              <ul className="space-y-3 text-sm text-white/40">
+                <li><Link href="/venues" className="hover:text-white transition-colors">Venues</Link></li>
+                <li><Link href="/bartenders" className="hover:text-white transition-colors">Bartenders</Link></li>
+                <li><Link href="/music" className="hover:text-white transition-colors">Musicians</Link></li>
+                <li><Link href="/events" className="hover:text-white transition-colors">Events</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4 text-white/80">Industry</h4>
+              <ul className="space-y-3 text-sm text-white/40">
+                <li><Link href="/join" className="hover:text-white transition-colors">Join</Link></li>
+                <li><Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link></li>
+                <li><Link href="/for-venues" className="hover:text-white transition-colors">For Venues</Link></li>
+                <li><Link href="/for-artists" className="hover:text-white transition-colors">For Artists</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4 text-white/80">About</h4>
+              <ul className="space-y-3 text-sm text-white/40">
+                <li><Link href="/about" className="hover:text-white transition-colors">Our Story</Link></li>
+                <li><Link href="/editorial" className="hover:text-white transition-colors">Editorial</Link></li>
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              </ul>
             </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-8 text-center">
-            <p className="text-slate-500 text-xs">
-              © {new Date().getFullYear()} QCMix. Independent. Quad Cities focused.
-            </p>
+          <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30">
+            <p>© 2025 QCMix. Independent. Quad Cities focused. Built for the industry.</p>
           </div>
         </div>
       </footer>
