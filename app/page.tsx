@@ -15,37 +15,43 @@ const heroImages = [
 const roleCards = [
   {
     title: 'Bars & Owners',
-    image: '/images/roles/bars-owners.jpg',
+    image: '/images/roles/bars & owners.jpg',
+    alt: 'Bar owner managing nightlife venue operations',
     body: 'Access experienced bartenders, musicians, distributors, and promoters in one place. Be known as a bar that\'s run well, treats people right, and shows up every day.',
     tagline: 'Good bars attract good people.',
   },
   {
     title: 'Bartenders & Bar Staff',
-    image: '/images/roles/bartenders-staff.jpg',
+    image: '/images/roles/bartenders & bar staff.jpg',
+    alt: 'Bartender expertly crafting drinks behind the bar',
     body: 'Find bars that are organized, respectful, and consistent. See management styles before walking in blind. Build a professional presence tied to real venues.',
     tagline: 'Where you work matters.',
   },
   {
     title: 'Musicians & Bands',
-    image: '/images/roles/musicians-bands.jpg',
+    image: '/images/roles/musicians & bands.jpg',
+    alt: 'Live band performing on stage at a venue',
     body: 'Get direct visibility to venues and decision-makers. Be connected to rooms that actually book. Build momentum in the scene you\'re part of.',
     tagline: 'Play the right rooms. Grow the right way.',
   },
   {
     title: 'Distributors & Industry Partners',
-    image: '/images/roles/distributors-partners.jpg',
+    image: '/images/roles/distributors & industry partners.jpg',
+    alt: 'Industry professional discussing distribution partnership',
     body: 'Understand the landscape before selling into it. See active venues, real teams, and how the scene moves.',
     tagline: 'Context beats cold calls.',
   },
   {
     title: 'Promoters',
     image: '/images/roles/promoters.jpg',
+    alt: 'Event promoter coordinating live music night',
     body: 'Align venues, bands, and audiences without guessing. Build better shows by knowing the room, the people, and the culture.',
     tagline: 'Better alignment makes better nights.',
   },
   {
     title: 'The Community',
-    image: '/images/roles/community.jpg',
+    image: '/images/roles/the community.jpg',
+    alt: 'Diverse community members enjoying nightlife together',
     body: 'Explore what\'s really happening. Discover venues you\'ll love. Connect with the scene you\'re part of.',
     tagline: 'Your night starts here.',
   },
@@ -55,33 +61,37 @@ const editorialArticles = [
   {
     category: 'ECOSYSTEM',
     title: 'The Quad Cities Nightlife Ecosystem',
-    image: '/images/sections/ecosystem.jpg',
+    image: '/images/sections/The Quad Cities Nightlife Ecosystem.jpg',
+    alt: 'Map showing the interconnected Quad Cities nightlife ecosystem',
     slug: '/editorial/qc-nightlife-ecosystem',
   },
   {
     category: 'OPERATIONS',
     title: 'What a Night Actually Looks Like — Open to Close',
-    image: '/images/sections/operations.jpg',
+    image: '/images/sections/Editorial Section.jpg',
+    alt: 'Behind-the-scenes view of a night\'s operations at a venue',
     slug: '/editorial/open-to-close',
   },
   {
     category: 'MUSIC',
     title: 'Why Regional Music Scenes Still Matter',
-    image: '/images/sections/music.jpg',
+    image: '/images/sections/Why Regional Music Still Matters.jpg',
+    alt: 'Musicians performing in a regional music venue',
     slug: '/editorial/regional-music-scenes',
   },
   {
     category: 'CULTURE',
     title: 'Behind the Bar: The Work You Don\'t See',
-    image: '/images/sections/culture.jpg',
+    image: '/images/sections/Atmospheric.jpg',
+    alt: 'Atmospheric view of venue culture and bar environment',
     slug: '/editorial/behind-the-bar',
   },
 ];
 
 const sectionImages = {
-  transparency: '/images/sections/transparency.jpg',
-  whyExists: '/images/sections/why-exists.jpg',
-  joinCta: '/images/sections/join-cta.jpg',
+  transparency: '/images/sections/Transparency Section.jpg',
+  whyExists: '/images/sections/Why QCMix Exists.jpg',
+  joinCta: '/images/sections/Editorial Section.jpg',
 };
 
 // ============================================
@@ -98,7 +108,7 @@ export default function HomePage() {
         <div className="hero-bg">
           <Image
             src={randomHero}
-            alt="QCMix Hero"
+            alt="QCMix platform connecting bars, musicians, and nightlife professionals in the Quad Cities"
             fill
             priority
             quality={85}
