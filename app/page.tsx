@@ -1,64 +1,21 @@
 import Link from "next/link";
+import { Hero } from "@/components/Hero";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-50">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-slate-900 to-slate-950" />
-        
-        <div className="relative max-w-6xl mx-auto px-6 py-20">
-          <div className="text-center space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl font-black tracking-tight leading-tight">
-                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
-                  Stop guessing.
-                </span>
-                <br />
-                Start seeing.
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                QCMix connects bars, bartenders, musicians, and promoters across the Quad Cities — so you know who's real before you work together.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <a
-                href="#explore"
-                className="px-8 py-4 rounded-lg bg-purple-600 hover:bg-purple-700 font-bold text-lg transition-all hover:shadow-lg hover:shadow-purple-900/50"
-              >
-                Explore the Scene
-              </a>
-              <Link
-                href="/industry-join"
-                className="px-8 py-4 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-800/50 font-bold text-lg transition-colors"
-              >
-                Join as Industry
-              </Link>
-            </div>
-
-            <div className="pt-12 text-slate-400 text-sm">
-              <p>Featured In</p>
-              <div className="flex justify-center gap-8 mt-4 opacity-60">
-                <span>Cedar Rapids Scene</span>
-                <span>•</span>
-                <span>Iowa Music Network</span>
-                <span>•</span>
-                <span>Local Industry Leaders</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="text-center text-slate-500">
-            <p className="text-xs uppercase tracking-wide mb-2">Scroll to explore</p>
-            <div className="text-lg">↓</div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        headline="Stop guessing. Start seeing."
+        subheadline="QCMix connects bars, bartenders, musicians, and promoters across the Quad Cities — so you know who's real before you work together."
+        cta_primary={{
+          label: "Explore the Scene",
+          url: "#explore",
+        }}
+        cta_secondary={{
+          label: "Join as Industry",
+          url: "/industry-join",
+        }}
+      />
 
       {/* Public Value Section */}
       <section id="explore" className="py-20 border-t border-slate-800">
