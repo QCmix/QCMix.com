@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/app/components/Nav";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "QCMix",
@@ -17,6 +19,8 @@ export default function RootLayout({
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
         <Nav />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
