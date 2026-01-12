@@ -40,3 +40,6 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
+// Re-export editorial footer used by article pages
+export { EditorialFooter } from '../app/components/Footer'
