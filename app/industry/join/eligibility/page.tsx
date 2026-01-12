@@ -2,9 +2,9 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function IndustryJoinEligibilityPage() {
+function EligibilityContent() {
   const searchParams = useSearchParams();
   const role = searchParams.get("role");
 
@@ -98,5 +98,13 @@ export default function IndustryJoinEligibilityPage() {
         any circumstance.
       </footer>
     </main>
+  );
+}
+
+export default function IndustryJoinEligibilityPage() {
+  return (
+    <Suspense fallback={<div className="mx-auto max-w-3xl px-6 py-16">Loading...</div>}>
+      <EligibilityContent />
+    </Suspense>
   );
 }

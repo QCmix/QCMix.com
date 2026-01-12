@@ -2,9 +2,9 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function IndustryJoinProfilePage() {
+function ProfileContent() {
   const searchParams = useSearchParams();
   const role = searchParams.get("role");
 
@@ -124,5 +124,13 @@ export default function IndustryJoinProfilePage() {
         Visibility and tools unlock later through verification and contribution.
       </footer>
     </main>
+  );
+}
+
+export default function IndustryJoinProfilePage() {
+  return (
+    <Suspense fallback={<div className="mx-auto max-w-3xl px-6 py-16">Loading...</div>}>
+      <ProfileContent />
+    </Suspense>
   );
 }
