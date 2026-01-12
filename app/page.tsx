@@ -285,11 +285,12 @@ export default function HomePage() {
                 className="group relative rounded-3xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 overflow-hidden bg-slate-900">
                   <Image
                     src={role.image}
                     alt={role.title}
                     fill
+                    quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] via-[#0d0d16]/50 to-transparent" />
@@ -324,6 +325,7 @@ export default function HomePage() {
             src="/images/sections/Transparency Section.jpg"
             alt="Transparency Section"
             fill
+            quality={85}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-[#08080f]/90" />
