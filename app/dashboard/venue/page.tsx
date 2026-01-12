@@ -4,7 +4,7 @@ export default async function VenueHome() {
   const user = await getCurrentUser();
   return (
     <main className="p-8">
-      <h1 className="text-2xl font-semibold">Venue Home</h1>
+      <h1 className="text-2xl font-semibold">Owner/Management Home</h1>
       <p className="mt-2 text-sm opacity-80">
         Role: {user?.role} · Verification: {user?.verificationStatus}
       </p>

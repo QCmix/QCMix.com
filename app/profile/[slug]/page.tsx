@@ -1,17 +1,16 @@
-export default function ProfileSlugPage({
+export default async function PublicProfilePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
+
   return (
     <main className="p-8">
-      <h1 className="text-2xl font-semibold">Profile: {params.slug}</h1>
+      <h1 className="text-2xl font-semibold">Profile: {slug}</h1>
       <p className="mt-2 text-sm opacity-80">
-        Public profile page for {params.slug}.
+        Placeholder public profile route. Wire to DB later.
       </p>
-      <div className="mt-6 border rounded p-4">
-        This is a profile page. Build screens later.
-      </div>
     </main>
   );
 }
