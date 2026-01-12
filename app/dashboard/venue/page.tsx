@@ -1,0 +1,16 @@
+import { getCurrentUser } from "@/lib/user";
+
+export default async function VenueHome() {
+  const user = await getCurrentUser();
+  return (
+    <main className="p-8">
+      <h1 className="text-2xl font-semibold">Venue Home</h1>
+      <p className="mt-2 text-sm opacity-80">
+        Role: {user?.role} · Verification: {user?.verificationStatus}
+      </p>
+      <div className="mt-6 border rounded p-4">
+        This is the venue section. Build screens later.
+      </div>
+    </main>
+  );
+}

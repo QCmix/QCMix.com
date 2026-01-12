@@ -1,0 +1,16 @@
+import { getCurrentUser } from "@/lib/user";
+
+export default async function DistributorHome() {
+  const user = await getCurrentUser();
+  return (
+    <main className="p-8">
+      <h1 className="text-2xl font-semibold">Distributor Home</h1>
+      <p className="mt-2 text-sm opacity-80">
+        Role: {user?.role} · Verification: {user?.verificationStatus}
+      </p>
+      <div className="mt-6 border rounded p-4">
+        This is the distributor section. Build screens later.
+      </div>
+    </main>
+  );
+}
