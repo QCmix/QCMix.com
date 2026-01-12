@@ -1,7 +1,7 @@
-export default function MusicPage() {
+export default function BarsPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      <h1>Music</h1>
+      <h1>Bars</h1>
     </main>
   )
 }

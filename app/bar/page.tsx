@@ -1,51 +1,17 @@
 export default function BarsPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
-      {/* SECTION HEADER */}
-      <section className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            Bars
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/70">
-            Independent coverage of the venues shaping nightlife in the Quad Cities.
-          </p>
-        </div>
-      </section>
+      <Header
+        title="Bars"
+        description="The rooms, layouts, and neighborhoods that shape nightlife in the Quad Cities."
+      />
 
-      {/* FEATURED EDITORIAL */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <article className="max-w-2xl">
-          <div className="aspect-[16/9] qc-img" />
-          <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
-            The Rooms That Define the Night
-          </h2>
-          <p className="mt-3 text-base text-white/60">
-            Why certain spaces last, and others disappear.
-          </p>
-        </article>
-      </section>
+      <EditorialFeature
+        title="Why Certain Bars Endure"
+        description="Some spaces outlive trends. Others disappear quietly."
+      />
 
-      {/* CURATED GRID */}
-      <section className="border-t border-white/10 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="mb-10 pl-4 text-3xl font-semibold accent-rule">
-            QC Recommended
-          </h2>
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="surface p-4">
-                <div className="aspect-[4/3] qc-img qc-img-muted" />
-                <h3 className="mt-3 font-semibold">Featured Venue</h3>
-                <p className="mt-1 text-sm text-white/60">
-                  Editorial selection.
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Grid title="QC Recommended Bars" />
     </main>
   )
 }
