@@ -1,5 +1,5 @@
-import { PageHeader, Feature, Grid } from '../components/Editorial'
-import { EditorialFooter } from '../components/Footer'
+import { PageHeader, Feature, Grid } from '../../components/Editorial'
+import { EditorialFooter } from '../../components/Footer'
 
 export default function MusicPage() {
   return (
@@ -10,7 +10,7 @@ export default function MusicPage() {
       />
       <Feature
         title="A Quiet Tuesday That Worked"
-        description="Why smaller crowds don’t mean weaker shows."
+        description="Why smaller crowds don't mean weaker shows."
       />
       <Grid
         title="Recent Performances"

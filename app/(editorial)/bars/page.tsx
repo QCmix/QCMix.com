@@ -1,5 +1,5 @@
-import { PageHeader, Feature, Grid } from '../components/Editorial'
-import { EditorialFooter } from '../components/Footer'
+import { PageHeader, Feature, Grid } from '../../components/Editorial'
+import { EditorialFooter } from '../../components/Footer'
 
 export default function BarsPage() {
   return (
