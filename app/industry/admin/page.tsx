@@ -1,5 +1,7 @@
 import { getIndustryProfileServer } from "@/app/lib/getIndustryProfile";
 import { softGuard } from "@/app/lib/softGuard";
+import { CAP } from "@/app/lib/capabilities";
+import { AdminControls } from "@/app/industry/components/AdminControls";
 
 export default function IndustryAdminPage() {
   const { role, state } = getIndustryProfileServer();
@@ -7,7 +9,7 @@ export default function IndustryAdminPage() {
   softGuard({
     role,
     state,
-    capability: "admin",
+    capability: CAP.ADMIN,
     redirectTo: "/industry/join",
   });
 
@@ -50,6 +52,8 @@ export default function IndustryAdminPage() {
           </p>
         </div>
       </section>
+
+      <AdminControls />
     </main>
   );
 }

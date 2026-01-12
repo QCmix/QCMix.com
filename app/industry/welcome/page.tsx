@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { softGuard } from "@/app/lib/softGuard";
 import { getIndustryProfile } from "@/app/lib/getIndustryProfile";
+import { CAP } from "@/app/lib/capabilities";
 
 export default function IndustryWelcomePage() {
   const { role, state } = getIndustryProfile();
 
-  const canVerify = softGuard({ role, state, capability: "verify" });
-  const canPost = softGuard({ role, state, capability: "post" });
+  const canVerify = softGuard({ role, state, capability: CAP.VERIFY });
+  const canPost = softGuard({ role, state, capability: CAP.POST });
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
