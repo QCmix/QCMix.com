@@ -168,22 +168,24 @@ export default function HomePage() {
             quality={90}
             className="object-cover"
           />
-          {/* Multi-layer overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08080f]/80 via-[#08080f]/40 to-[#08080f]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08080f]/60 via-transparent to-[#08080f]/60" />
+          {/* Enhanced multi-layer overlay for better text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08080f]/85 via-[#08080f]/50 to-[#08080f]/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08080f]/70 via-transparent to-[#08080f]/70" />
+          {/* Subtle brass glow at bottom */}
+          <div className="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-t from-amber-900/10 to-transparent" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24 pb-32">
-          <p className="text-violet-400 font-medium tracking-wider uppercase text-sm mb-6 animate-fade-in-up">
+          <p className="text-amber-500 font-medium tracking-[0.2em] uppercase text-sm mb-6 animate-fade-in-up">
             Quad Cities Nightlife Platform
           </p>
           
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.2] tracking-tight mb-8 pb-2">
+            <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent pb-1">
               Stop guessing.
             </span>
-            <span className="block bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent mt-3 pb-1">
               Start seeing.
             </span>
           </h1>
@@ -192,18 +194,18 @@ export default function HomePage() {
             QCMix connects bars, bartenders, musicians, and promoters across the Quad Cities — so you know who's real before you work together.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <Link 
               href="/explore" 
-              className="group relative px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-105"
+              className="group relative px-10 py-5 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-full font-semibold text-lg overflow-hidden transition-smooth hover:shadow-[0_0_50px_rgba(218,165,32,0.5)] hover:scale-105"
             >
-              <span className="relative z-10">Explore the Scene</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative z-10 text-black">Explore the Scene</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Link>
             
             <Link 
               href="/join" 
-              className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full font-semibold text-lg hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              className="px-10 py-5 bg-white/5 backdrop-blur-sm border border-amber-900/30 rounded-full font-semibold text-lg hover:bg-amber-950/20 hover:border-amber-600/40 transition-smooth"
             >
               Join as Industry
             </Link>
@@ -212,43 +214,43 @@ export default function HomePage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center gap-3 text-white/40">
+          <div className="flex flex-col items-center gap-3 text-amber-600/60">
             <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
-            <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
+            <div className="w-px h-12 bg-gradient-to-b from-amber-600/60 to-transparent animate-pulse" />
           </div>
         </div>
       </section>
 
       {/* ==================== FEATURES ==================== */}
-      <section className="py-32 px-6">
+      <section className="py-40 px-6 bg-gradient-to-b from-transparent via-zinc-950/30 to-transparent">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
               What You Can Do Here
             </h2>
-            <p className="text-xl text-white/50 max-w-xl mx-auto">
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed text-center">
               No account required. Start exploring the Quad Cities nightlife immediately.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <Link
                 key={feature.title}
                 href={feature.link}
-                className="group p-8 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500 hover:-translate-y-2"
+                className="group p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.08] hover:border-amber-600/30 transition-smooth hover-lift"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center text-violet-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600/20 to-amber-800/10 flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-violet-300 transition-colors">
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-amber-400 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-white/50 leading-relaxed text-sm">
+                <p className="text-white/60 leading-relaxed text-sm">
                   {feature.description}
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-violet-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-6 flex items-center gap-2 text-amber-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span>Explore</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -261,19 +263,19 @@ export default function HomePage() {
       </section>
 
       {/* ==================== ROLE CARDS ==================== */}
-      <section className="py-32 px-6 relative">
+      <section className="py-40 px-6 relative">
         {/* Subtle background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-950/5 to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-20">
-            <p className="text-violet-400 font-medium tracking-wider uppercase text-sm mb-4">
+          <div className="text-center mb-24">
+            <p className="text-amber-500 font-medium tracking-[0.2em] uppercase text-sm mb-4">
               Built for the whole ecosystem
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">
               One City. Many Roles.
             </h2>
-            <p className="text-xl text-white/50 max-w-2xl mx-auto">
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed text-center">
               QCMix isn't built for one side of the bar. It's built for everyone who makes the night work.
             </p>
           </div>
@@ -282,10 +284,10 @@ export default function HomePage() {
             {roleCards.map((role, index) => (
               <div
                 key={role.title}
-                className="group relative rounded-3xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500"
+                className="group relative rounded-2xl overflow-hidden bg-zinc-950/50 border border-white/[0.08] hover:border-amber-600/30 transition-smooth hover-lift"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden bg-slate-900">
+                <div className="relative h-64 overflow-hidden bg-zinc-900">
                   <Image
                     src={role.image}
                     alt={role.title}
@@ -294,24 +296,24 @@ export default function HomePage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     priority={index < 3}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] via-[#0d0d16]/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
                 </div>
 
                 {/* Content */}
-                <div className="relative p-8 -mt-12">
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-violet-300 transition-colors">
+                <div className="relative p-8 -mt-14">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-amber-400 transition-colors">
                     {role.title}
                   </h3>
-                  <p className="text-white/50 leading-relaxed mb-6 text-sm">
+                  <p className="text-white/60 leading-relaxed mb-6 text-sm">
                     {role.description}
                   </p>
-                  <p className="text-violet-400 font-medium text-sm">
+                  <p className="text-amber-500 font-medium text-sm italic">
                     "{role.tagline}"
                   </p>
                 </div>
 
                 {/* Hover glow */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-t from-violet-600/5 to-transparent" />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-t from-amber-600/5 to-transparent" />
               </div>
             ))}
           </div>
@@ -326,34 +328,33 @@ export default function HomePage() {
             src="/images/sections/Transparency-Section.jpg"
             alt="Transparency Section"
             fill
-            quality={85}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#08080f]/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-violet-950/30 to-indigo-950/30" />
+          <div className="absolute inset-0 bg-[#08080f]/92" />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-950/20 to-amber-900/10" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight">
             Transparency builds
             <br />
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
               stronger nights.
             </span>
           </h2>
           
-          <p className="text-xl text-white/60 mb-16 max-w-2xl mx-auto">
+          <p className="text-xl text-white/60 mb-16 max-w-2xl mx-auto leading-relaxed text-center">
             QCMix is built on visibility. When everyone can see how the scene actually works:
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-16">
             {transparencyPoints.map((point) => (
               <div
                 key={point}
-                className="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06]"
+                className="flex items-center gap-4 p-6 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-amber-600/30 transition-smooth"
               >
-                <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 text-emerald-400">
+                <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 text-amber-400">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
                 </div>
@@ -362,24 +363,24 @@ export default function HomePage() {
             ))}
           </div>
 
-          <p className="text-white/40 max-w-2xl mx-auto leading-relaxed italic">
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed italic text-lg">
             This platform is for owners who give a damn, bartenders who take pride in their craft, musicians who put in the work, and partners who respect the ecosystem.
           </p>
         </div>
       </section>
 
       {/* ==================== EDITORIAL ==================== */}
-      <section className="py-32 px-6">
+      <section className="py-40 px-6 bg-gradient-to-b from-transparent via-zinc-950/40 to-transparent">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <p className="text-violet-400 font-medium tracking-wider uppercase text-sm mb-4">
+          <div className="text-center mb-24">
+            <p className="text-amber-500 font-medium tracking-[0.2em] uppercase text-sm mb-4">
               Stories from the scene
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
               From the Editorial
             </h2>
-            <p className="text-xl text-white/50 max-w-xl mx-auto">
-              Real stories from inside the Quad Cities nightlife.
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed text-center">
+              Real stories. From inside the Quad Cities nightlife.
             </p>
           </div>
 
@@ -388,10 +389,10 @@ export default function HomePage() {
               <Link
                 key={article.slug}
                 href={article.slug}
-                className="group relative rounded-2xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/20 transition-all duration-300"
+                className="group relative rounded-xl overflow-hidden bg-zinc-950/50 border border-white/[0.08] hover:border-amber-600/30 transition-smooth hover-lift"
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -399,19 +400,19 @@ export default function HomePage() {
                     quality={85}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <span className="text-xs font-semibold tracking-wider text-violet-400 uppercase">
+                <div className="p-7">
+                  <span className="text-xs font-semibold tracking-[0.15em] text-amber-500 uppercase">
                     {article.category}
                   </span>
-                  <h3 className="text-lg font-semibold mt-2 mb-4 leading-snug group-hover:text-violet-300 transition-colors">
+                  <h3 className="text-lg font-semibold mt-3 mb-4 leading-snug group-hover:text-amber-400 transition-colors">
                     {article.title}
                   </h3>
-                  <span className="text-sm text-white/40 group-hover:text-violet-400 transition-colors flex items-center gap-2">
-                    Read
+                  <span className="text-sm text-white/50 group-hover:text-amber-500 transition-colors flex items-center gap-2">
+                    Read Article
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
@@ -421,10 +422,10 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               href="/editorial"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 text-white/80 hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-medium"
+              className="inline-flex items-center gap-2 px-10 py-5 rounded-full border border-amber-900/30 text-white/80 hover:bg-amber-950/20 hover:border-amber-600/40 transition-smooth font-medium"
             >
               Read the Editorial
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
@@ -451,10 +452,10 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
               Why QCMix Exists
             </h2>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed text-center">
               QCMix was built by people inside the scene — not outsiders trying to monetize it.
             </p>
           </div>
@@ -467,8 +468,8 @@ export default function HomePage() {
             <div className="space-y-5 mb-12">
               {missionPoints.map((point) => (
                 <div key={point} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/20 flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 text-violet-400">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 text-amber-400">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>
@@ -489,7 +490,7 @@ export default function HomePage() {
       </section>
 
       {/* ==================== INDUSTRY JOIN CTA ==================== */}
-      <section className="relative py-40 px-6">
+      <section className="relative py-48 px-6">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -498,25 +499,25 @@ export default function HomePage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-[#08080f]/90 to-[#08080f]/80" />
-          <div className="absolute inset-0 bg-gradient-to-b from-violet-950/20 to-indigo-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-[#08080f]/92 to-[#08080f]/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-950/10 to-amber-900/5" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             Industry Join
           </h2>
-          <p className="text-xl text-white/60 mb-12 max-w-xl mx-auto">
+          <p className="text-xl text-white/60 mb-14 max-w-2xl mx-auto leading-relaxed text-center">
             If you're part of the scene — this is your platform.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-14">
             {industryRoles.map((role) => (
               <span
                 key={role}
-                className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/70"
+                className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/70 hover:border-amber-600/30 transition-smooth"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-emerald-400">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-amber-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                 </svg>
                 {role}
@@ -524,13 +525,13 @@ export default function HomePage() {
             ))}
           </div>
 
-          <p className="text-white/40 mb-10">
+          <p className="text-white/50 mb-12 text-lg">
             Start basic. Verify when ready. Build your presence over time.
           </p>
 
           <Link
             href="/join"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full font-semibold text-lg hover:shadow-[0_0_50px_rgba(139,92,246,0.4)] hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-full font-semibold text-lg hover:shadow-[0_0_60px_rgba(218,165,32,0.5)] hover:scale-105 transition-smooth text-black"
           >
             Join the Industry
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
@@ -541,12 +542,12 @@ export default function HomePage() {
       </section>
 
       {/* ==================== FOOTER ==================== */}
-      <footer className="py-20 px-6 border-t border-white/[0.06]">
+      <footer className="py-24 px-6 border-t border-white/[0.08] bg-zinc-950/50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
             {/* Brand */}
             <div className="md:col-span-1">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
                 QCMix
               </h3>
               <p className="text-white/40 text-sm leading-relaxed">
@@ -556,37 +557,37 @@ export default function HomePage() {
 
             {/* Links */}
             <div>
-              <h4 className="font-semibold mb-4 text-white/80">Explore</h4>
-              <ul className="space-y-3 text-sm text-white/40">
-                <li><Link href="/venues" className="hover:text-white transition-colors">Venues</Link></li>
-                <li><Link href="/bartenders" className="hover:text-white transition-colors">Bartenders</Link></li>
-                <li><Link href="/music" className="hover:text-white transition-colors">Musicians</Link></li>
-                <li><Link href="/events" className="hover:text-white transition-colors">Events</Link></li>
+              <h4 className="font-semibold mb-6 text-white/90 tracking-wide">Explore</h4>
+              <ul className="space-y-3 text-sm text-white/50">
+                <li><Link href="/venues" className="hover:text-amber-400 transition-all duration-300">Venues</Link></li>
+                <li><Link href="/bartenders" className="hover:text-amber-400 transition-all duration-300">Bartenders</Link></li>
+                <li><Link href="/music" className="hover:text-amber-400 transition-all duration-300">Musicians</Link></li>
+                <li><Link href="/events" className="hover:text-amber-400 transition-all duration-300">Events</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white/80">Industry</h4>
-              <ul className="space-y-3 text-sm text-white/40">
-                <li><Link href="/join" className="hover:text-white transition-colors">Join</Link></li>
-                <li><Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link></li>
-                <li><Link href="/for-venues" className="hover:text-white transition-colors">For Venues</Link></li>
-                <li><Link href="/for-artists" className="hover:text-white transition-colors">For Artists</Link></li>
+              <h4 className="font-semibold mb-6 text-white/90 tracking-wide">Industry</h4>
+              <ul className="space-y-3 text-sm text-white/50">
+                <li><Link href="/join" className="hover:text-amber-400 transition-all duration-300">Join</Link></li>
+                <li><Link href="/dashboard" className="hover:text-amber-400 transition-all duration-300">Dashboard</Link></li>
+                <li><Link href="/for-venues" className="hover:text-amber-400 transition-all duration-300">For Venues</Link></li>
+                <li><Link href="/for-artists" className="hover:text-amber-400 transition-all duration-300">For Artists</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white/80">About</h4>
-              <ul className="space-y-3 text-sm text-white/40">
-                <li><Link href="/about" className="hover:text-white transition-colors">Our Story</Link></li>
-                <li><Link href="/editorial" className="hover:text-white transition-colors">Editorial</Link></li>
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <h4 className="font-semibold mb-6 text-white/90 tracking-wide">About</h4>
+              <ul className="space-y-3 text-sm text-white/50">
+                <li><Link href="/about" className="hover:text-amber-400 transition-all duration-300">Our Story</Link></li>
+                <li><Link href="/editorial" className="hover:text-amber-400 transition-all duration-300">Editorial</Link></li>
+                <li><Link href="/privacy" className="hover:text-amber-400 transition-all duration-300">Privacy</Link></li>
+                <li><Link href="/contact" className="hover:text-amber-400 transition-all duration-300">Contact</Link></li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30">
+          <div className="pt-12 mt-12 border-t border-white/[0.08] flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
             <p>© 2025 QCMix. Independent. Quad Cities focused. Built for the industry.</p>
           </div>
         </div>
