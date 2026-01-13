@@ -60,25 +60,25 @@ const features = [
 const roleCards = [
   {
     title: 'Bars & Owners',
-    image: '/images/roles/Bars & Owners.jpg',
+    image: '/images/roles/Bars-&-Owners.jpg',
     description: 'Access experienced bartenders, musicians, distributors, and promoters in one place. Be known as a bar that\'s run well, treats people right, and shows up every day.',
     tagline: 'Good bars attract good people.',
   },
   {
     title: 'Bartenders & Bar Staff',
-    image: '/images/roles/Bartenders & Bar Staff.jpg',
+    image: '/images/roles/Bartenders-&-Bar-Staff.jpg',
     description: 'Find bars that are organized, respectful, and consistent. See management styles before walking in blind. Build a professional presence tied to real venues.',
     tagline: 'Where you work matters.',
   },
   {
     title: 'Musicians & Bands',
-    image: '/images/roles/Musicians & Bands.jpg',
+    image: '/images/roles/Musicians-&-Bands.jpg',
     description: 'Get direct visibility to venues and decision-makers. Be connected to rooms that actually book. Build momentum in the scene you\'re part of.',
     tagline: 'Play the right rooms. Grow the right way.',
   },
   {
     title: 'Distributors & Industry Partners',
-    image: '/images/roles/Distributors & Industry Partners.jpg',
+    image: '/images/roles/Distributors-&-Industry-Partners.jpg',
     description: 'Understand the landscape before selling into it. See active venues, real teams, and how the scene moves.',
     tagline: 'Context beats cold calls.',
   },
@@ -90,7 +90,7 @@ const roleCards = [
   },
   {
     title: 'The Community',
-    image: '/images/roles/The Community.jpg',
+    image: '/images/roles/The-Community.jpg',
     description: 'Explore what\'s really happening. Discover venues you\'ll love. Connect with the scene you\'re part of.',
     tagline: 'Your night starts here.',
   },
@@ -107,25 +107,25 @@ const editorialArticles = [
   {
     category: 'ECOSYSTEM',
     title: 'The Quad Cities Nightlife Ecosystem',
-    image: '/images/editorial/The Quad Cities Nightlife Ecosystem.jpg',
+    image: '/images/editorial/The-Quad-Cities-Nightlife-Ecosystem.jpg',
     slug: '/editorial/qc-nightlife-ecosystem',
   },
   {
     category: 'OPERATIONS',
     title: 'What a Night Actually Looks Like — Open to Close',
-    image: '/images/sections/Editorial Section.jpg',
+    image: '/images/sections/Editorial-Section.jpg',
     slug: '/editorial/open-to-close',
   },
   {
     category: 'MUSIC',
     title: 'Why Regional Music Scenes Still Matter',
-    image: '/images/editorial/Why Regional Music Still Matters.jpg',
+    image: '/images/editorial/Why-Regional-Music-Still-Matters.jpg',
     slug: '/editorial/regional-music-scenes',
   },
   {
     category: 'CULTURE',
     title: 'Behind the Bar: The Work You Don\'t See',
-    image: '/images/roles/Bartenders & Bar Staff.jpg',
+    image: '/images/roles/Bartenders-&-Bar-Staff.jpg',
     slug: '/editorial/behind-the-bar',
   },
 ];
@@ -322,7 +322,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/sections/Transparency Section.jpg"
+            src="/images/sections/Transparency-Section.jpg"
             alt="Transparency Section"
             fill
             quality={85}
@@ -439,7 +439,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/sections/Why QCMix Exists.jpg"
+            src="/images/sections/Why-QCMix-Exists.jpg"
             alt="Why QCMix Exists"
             fill
             quality={85}
