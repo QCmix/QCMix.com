@@ -84,7 +84,7 @@ const roleCards = [
   },
   {
     title: 'Promoters',
-    image: '/images/roles/Promoters.jpg',
+    image: '/images/roles/Promoters-Role.jpg',
     description: 'Align venues, bands, and audiences without guessing. Build better shows by knowing the room, the people, and the culture.',
     tagline: 'Better alignment makes better nights.',
   },
@@ -292,6 +292,7 @@ export default function HomePage() {
                     fill
                     quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    priority={index < 3}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] via-[#0d0d16]/50 to-transparent" />
                 </div>
