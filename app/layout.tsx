@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
         <Header />
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
         <Analytics />
         <SpeedInsights />
       </body>
