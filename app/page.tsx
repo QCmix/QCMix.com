@@ -395,6 +395,7 @@ export default function HomePage() {
                     src={article.image}
                     alt={article.title}
                     fill
+                    quality={85}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d16] to-transparent" />
@@ -441,6 +442,7 @@ export default function HomePage() {
             src="/images/sections/Why QCMix Exists.jpg"
             alt="Why QCMix Exists"
             fill
+            quality={85}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-[#08080f]/95" />
