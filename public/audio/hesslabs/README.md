@@ -6,6 +6,10 @@ This directory contains music samples for the HessLabs licensing portfolio.
 
 Place your MP3 files in this folder with the following naming convention:
 
+### Song Writing
+- `songwriting-sample-001.mp3`
+- `songwriting-sample-002.mp3`
+
 ### Film Samples
 - `cinematic-tension.mp3`
 - `emotional-journey.mp3`
@@ -14,11 +18,6 @@ Place your MP3 files in this folder with the following naming convention:
 ### Artist Samples
 - `midnight-groove.mp3`
 - `electric-dreams.mp3`
-
-### Jingles
-- `brand-opener.mp3`
-- `product-launch.mp3`
-- `corporate-identity.mp3`
 
 ## Adding New Samples
 
@@ -32,7 +31,7 @@ To add new music samples:
 {
   id: 'category-###',
   title: 'Your Track Title',
-  category: 'Film' | 'Artist' | 'Jingles',
+  category: 'Song Writing' | 'Film' | 'Artist',
   description: 'Brief description of the track',
   duration: 'M:SS',
   bpm: 120, // optional

@@ -10,14 +10,18 @@ import Image from 'next/image';
 
 interface MusicSample {
   id: string;
+  catalogId?: string;
   title: string;
-  category: 'Film' | 'Artist' | 'Jingles';
+  category: 'Song Writing' | 'Film' | 'Artist';
   description: string;
   duration: string;
   bpm?: number;
   key?: string;
   mood: string[];
   filename: string;
+  image?: string;
+  copyright?: string;
+  publishingCo?: string;
 }
 
 const musicSamples: MusicSample[] = [
@@ -59,6 +63,21 @@ const musicSamples: MusicSample[] = [
   // Artist Samples
   {
     id: 'artist-001',
+    catalogId: 'JJH-2025-029',
+    title: 'Why Can\'t You Even Love Me',
+    category: 'Artist',
+    description: 'This is a high-octane Metalcore/Alternative Rock track that masterfully balances raw aggression with melodic vulnerability. The song features heavy, down-tuned guitar riffs and driving double-bass percussion that provide a foundation for a dynamic vocal performance, shifting between haunting clean melodies and intense, emotive screams.',
+    duration: '3:48',
+    bpm: 165,
+    key: 'Dm',
+    mood: ['Intense', 'Aggressive', 'Melancholic', 'Cathartic'],
+    filename: 'Why Can\'t You Even Love Me.mp3',
+    image: '/images/hesslabs/songs/why-cant-you-even-love-me.jpg',
+    copyright: '2025 J. Hess / MFLUX Records / Hess Song Labs Publishing (ASCAP)',
+    publishingCo: '℗ 2025 MFLUX Records'
+  },
+  {
+    id: 'artist-002',
     title: 'Midnight Groove',
     category: 'Artist',
     description: 'Smooth jazz-fusion with electronic elements',
@@ -69,7 +88,7 @@ const musicSamples: MusicSample[] = [
     filename: 'midnight-groove.mp3'
   },
   {
-    id: 'artist-002',
+    id: 'artist-003',
     title: 'Electric Dreams',
     category: 'Artist',
     description: 'Synthwave-inspired track with nostalgic vibes',
@@ -80,36 +99,48 @@ const musicSamples: MusicSample[] = [
     filename: 'electric-dreams.mp3'
   },
   
-  // Jingles
+  // Song Writing
   {
-    id: 'jingle-001',
-    title: 'Brand Opener',
-    category: 'Jingles',
-    description: 'Upbeat 15-second brand introduction',
-    duration: '0:15',
-    bpm: 120,
-    mood: ['Upbeat', 'Catchy', 'Professional'],
-    filename: 'brand-opener.mp3'
+    id: 'songwriting-001',
+    title: 'LOVE ME',
+    category: 'Song Writing',
+    description: 'Original song composition',
+    duration: '3:30',
+    bpm: 95,
+    key: 'D',
+    mood: ['Emotional', 'Contemporary', 'Heartfelt'],
+    filename: 'LOVE ME.mp3',
+    image: '/images/hesslabs/Hess Black.png',
+    copyright: '2026 J. Hess',
+    publishingCo: 'Hess Song Labs Publishing (ASCAP)'
   },
   {
-    id: 'jingle-002',
-    title: 'Product Launch',
-    category: 'Jingles',
-    description: 'Exciting 30-second jingle for product reveals',
-    duration: '0:30',
-    bpm: 128,
-    mood: ['Exciting', 'Modern', 'Bold'],
-    filename: 'product-launch.mp3'
+    id: 'songwriting-002',
+    title: 'Lyric & Melody Demo',
+    category: 'Song Writing',
+    description: 'Original songwriting sample with vocal melody and lyrics',
+    duration: '3:20',
+    bpm: 92,
+    key: 'G',
+    mood: ['Melodic', 'Lyrical', 'Contemporary'],
+    filename: 'songwriting-sample-001.mp3',
+    image: '/images/hesslabs/Hess Black.png',
+    copyright: '2026 J. Hess',
+    publishingCo: 'Hess Song Labs Publishing (ASCAP)'
   },
   {
-    id: 'jingle-003',
-    title: 'Corporate Identity',
-    category: 'Jingles',
-    description: 'Sophisticated 20-second corporate signature',
-    duration: '0:20',
-    bpm: 100,
-    mood: ['Professional', 'Trustworthy', 'Clean'],
-    filename: 'corporate-identity.mp3'
+    id: 'songwriting-003',
+    title: 'Pop Song Structure',
+    category: 'Song Writing',
+    description: 'Complete song with verse, chorus, and bridge arrangements',
+    duration: '3:45',
+    bpm: 110,
+    key: 'C',
+    mood: ['Catchy', 'Radio-Ready', 'Polished'],
+    filename: 'songwriting-sample-002.mp3',
+    image: '/images/hesslabs/Hess Black.png',
+    copyright: '2026 J. Hess',
+    publishingCo: 'Hess Song Labs Publishing (ASCAP)'
   }
 ];
 
@@ -118,14 +149,14 @@ const musicSamples: MusicSample[] = [
 // ============================================
 
 export default function HessLabsPage() {
-  const [selectedCategory, setSelectedCategory] = useState<'All' | 'Film' | 'Artist' | 'Jingles'>('All');
+  const [selectedCategory, setSelectedCategory] = useState<'All' | 'Song Writing' | 'Film' | 'Artist'>('All');
   const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
 
   const filteredSamples = selectedCategory === 'All' 
     ? musicSamples 
     : musicSamples.filter(sample => sample.category === selectedCategory);
 
-  const categories = ['All', 'Film', 'Artist', 'Jingles'] as const;
+  const categories = ['All', 'Song Writing', 'Film', 'Artist'] as const;
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#08080f] via-[#0d0d15] to-[#08080f]">
@@ -236,9 +267,9 @@ export default function HessLabsPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-medium text-white/90 mb-2">Brand / Commercial Music</h3>
+              <h3 className="text-lg font-medium text-white/90 mb-2">Song Writing & Lyrics</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Custom jingles, background tracks, and sonic branding for advertising, corporate video, product launches, and brand identity campaigns.
+                Original songwriting with melody and lyrics for artists, albums, and commercial projects. Complete song structures or collaborative co-writing.
               </p>
             </div>
             <div>
@@ -349,19 +380,32 @@ interface MusicCardProps {
 
 function MusicCard({ sample, isPlaying, onPlay, onPause }: MusicCardProps) {
   const categoryColors = {
+    'Song Writing': 'from-emerald-500/20 to-green-500/20 border-emerald-500/30',
     Film: 'from-amber-500/20 to-orange-500/20 border-amber-500/30',
-    Artist: 'from-violet-500/20 to-purple-500/20 border-violet-500/30',
-    Jingles: 'from-cyan-500/20 to-blue-500/20 border-cyan-500/30'
+    Artist: 'from-violet-500/20 to-purple-500/20 border-violet-500/30'
   };
 
   const categoryBadgeColors = {
+    'Song Writing': 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
     Film: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-    Artist: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
-    Jingles: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
+    Artist: 'bg-violet-500/20 text-violet-300 border-violet-500/30'
   };
 
   return (
     <div className={`group relative bg-gradient-to-br ${categoryColors[sample.category]} backdrop-blur-sm border rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-white/5 hover:scale-[1.02]`}>
+      {/* Album Artwork */}
+      {sample.image && (
+        <div className="relative w-full aspect-square bg-black/40">
+          <Image
+            src={sample.image}
+            alt={`${sample.title} artwork`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
+      
       {/* Card Content */}
       <div className="p-6">
         {/* Header */}
@@ -413,6 +457,28 @@ function MusicCard({ sample, isPlaying, onPlay, onPause }: MusicCardProps) {
             </span>
           ))}
         </div>
+
+        {/* Copyright & Publishing Info */}
+        {(sample.copyright || sample.publishingCo) && (
+          <div className="mb-4 text-xs text-white/40 space-y-1">
+            {sample.copyright && (
+              <div className="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                </svg>
+                © {sample.copyright}
+              </div>
+            )}
+            {sample.publishingCo && (
+              <div className="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+                {sample.publishingCo}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Audio Player */}
         <div className="bg-black/20 rounded-lg p-3 border border-white/10">
