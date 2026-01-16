@@ -4,6 +4,12 @@ export default function IndustryJoinPage() {
   return (
     <main className="p-8 max-w-xl">
       <h1 className="text-2xl font-semibold">Industry Join</h1>
+      <div className="mt-4 mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+        <p className="text-yellow-900 text-base font-medium">
+          This website is currently being built in real time.<br />
+          <span className="font-bold">Congratulations on being one of the FIRST to even know about this website.</span>
+        </p>
+      </div>
       <p className="mt-2 text-sm opacity-80">
         Select a role to create your account (temporary cookie-based stub).
       </p>

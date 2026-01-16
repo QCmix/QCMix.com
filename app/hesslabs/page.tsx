@@ -398,10 +398,11 @@ function MusicCard({ sample, isPlaying, onPlay, onPause }: MusicCardProps) {
         <div className="relative w-full aspect-square bg-black/40">
           <Image
             src={sample.image}
-            alt={`${sample.title} artwork`}
+            alt="J. Hess / MFLUX / HESS Song Labs"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized
           />
         </div>
       )}
