@@ -130,7 +130,7 @@ export default function PatronRegistrationPage() {
             transition={{ duration: 0.3 }}
             className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg"
           >
-            {/* Step 1: ... */}
+            {currentStep === 1 && (
               <div className="space-y-8">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Basic Information</h2>
