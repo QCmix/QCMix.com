@@ -31,10 +31,10 @@ export default function TipTrackerPage() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
-      <section className="bg-indigo-900 text-white py-24">
+    <div className="bg-[#08080f] min-h-screen">
+      <section className="bg-gradient-to-br from-violet-600/20 to-purple-600/20 text-white py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <span className="inline-block bg-indigo-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Coming Soon</span>
+          <span className="inline-block bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border border-amber-500/30">Coming Soon</span>
           <h1 className="text-4xl sm:text-5xl font-black mb-6 leading-tight">
             Private Tip Tracking for <br/> Quad Cities Bartenders
           </h1>
@@ -95,45 +95,45 @@ export default function TipTrackerPage() {
           </div>
 
           <div className="sticky top-24 h-fit">
-            <div className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100">
+            <div className="bg-[#0d0d16] p-8 rounded-3xl shadow-2xl border border-white/[0.06]">
               {submitted ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                  <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl border border-emerald-500/30">
                     <i className="fa-solid fa-check"></i>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">You're on the list!</h3>
-                  <p className="text-gray-600">We'll notify you as soon as the pilot program begins. Thank you for your interest in QCmix.</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">You're on the list!</h3>
+                  <p className="text-white/60">We'll notify you as soon as the pilot program begins. Thank you for your interest in QCmix.</p>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Early Access</h3>
-                  <p className="text-gray-600 mb-8">Be the first to test the Tip Tracker in the Quad Cities.</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">Get Early Access</h3>
+                  <p className="text-white/60 mb-8">Be the first to test the Tip Tracker in the Quad Cities.</p>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                      <label className="block text-sm font-bold text-white/80 mb-2">Email Address</label>
                       <input 
                         type="email" 
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="yourname@example.com"
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all outline-none"
+                        className="w-full px-4 py-3 bg-white/[0.04] border border-white/[0.06] rounded-xl focus:ring-2 focus:ring-violet-500/50 text-white placeholder-white/30 transition-all outline-none"
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Primary Role</label>
+                      <label className="block text-sm font-bold text-white/80 mb-2">Primary Role</label>
                       <select 
                         value={role}
                         onChange={(e) => setRole(e.target.value)}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none"
+                        className="w-full px-4 py-3 bg-white/[0.04] border border-white/[0.06] rounded-xl outline-none text-white"
                       >
-                        <option value="bartender">Bartender</option>
-                        <option value="server">Server</option>
-                        <option value="venue-owner">Venue Owner</option>
-                        <option value="musician">Musician</option>
-                        <option value="other">Other</option>
+                        <option value="bartender" className="bg-[#0d0d16] text-white">Bartender</option>
+                        <option value="server" className="bg-[#0d0d16] text-white">Server</option>
+                        <option value="venue-owner" className="bg-[#0d0d16] text-white">Venue Owner</option>
+                        <option value="musician" className="bg-[#0d0d16] text-white">Musician</option>
+                        <option value="other" className="bg-[#0d0d16] text-white">Other</option>
                       </select>
                     </div>
 
@@ -142,20 +142,20 @@ export default function TipTrackerPage() {
                         type="checkbox" 
                         checked={wantsEarlyAccess}
                         onChange={(e) => setWantsEarlyAccess(e.target.checked)}
-                        className="w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500" 
+                        className="w-5 h-5 rounded text-violet-600 focus:ring-violet-500 bg-white/[0.04] border-white/[0.06]" 
                       />
-                      <span className="text-sm text-gray-700 group-hover:text-gray-900">I'd like early access to the pilot program</span>
+                      <span className="text-sm text-white/70 group-hover:text-white">I'd like early access to the pilot program</span>
                     </label>
 
                     <button 
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-indigo-600 text-white font-black py-4 rounded-xl shadow-lg shadow-indigo-100 hover:bg-indigo-700 transform transition-all active:scale-[0.98] disabled:opacity-50"
+                      className="w-full bg-gradient-to-r from-violet-600 to-purple-600 text-white font-black py-4 rounded-xl shadow-lg hover:from-violet-700 hover:to-purple-700 transform transition-all active:scale-[0.98] disabled:opacity-50"
                     >
                       {loading ? 'Submitting...' : 'Join the Waitlist'}
                     </button>
                     
-                    <p className="text-[10px] text-center text-gray-400 uppercase tracking-widest font-bold">
+                    <p className="text-[10px] text-center text-white/40 uppercase tracking-widest font-bold">
                       Privacy First • local focus • no spam
                     </p>
                   </form>

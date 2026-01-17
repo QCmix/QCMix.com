@@ -152,7 +152,7 @@ const industryRoles = [
 
 export default function HomePage() {
   return (
-    <main className="bg-neutral-950 text-neutral-100 min-h-screen">
+    <main className="bg-[#08080f] text-white min-h-screen">
       <section className="max-w-7xl mx-auto py-24 px-6 text-center">
         <h1 className="text-5xl font-bold mb-6">Find your night in the Quad Cities.</h1>
         <p className="text-xl mb-10">Bars, music, and the people who make it happen—documented in one place.</p>

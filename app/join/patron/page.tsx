@@ -58,7 +58,7 @@ export default function PatronRegistrationPage() {
   };
 
   return (
-    <main className="bg-white min-h-screen text-gray-900">
+    <main className="bg-[#08080f] min-h-screen text-white">
       <section className="relative pt-20 pb-12 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src="/images/roles/Patron.jpg" alt="Patron" fill className="object-cover opacity-10" />

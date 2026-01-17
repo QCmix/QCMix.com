@@ -59,114 +59,116 @@ export default function ProfilePage() {
 
   return (
     <ProtectedRoute>
-      <div className="max-w-3xl mx-auto px-4 py-12">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="bg-indigo-600 h-32"></div>
-          <div className="px-8 pb-8">
-            <div className="relative -mt-12 mb-8">
-              <div className="w-24 h-24 bg-white rounded-2xl border-4 border-white shadow-lg flex items-center justify-center text-4xl font-bold text-indigo-600">
-                {profile?.name?.charAt(0)}
+      <div className="min-h-screen bg-[#08080f] py-12">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="bg-[#0d0d16] rounded-2xl border border-white/[0.06] overflow-hidden">
+            <div className="bg-gradient-to-r from-violet-600 to-purple-600 h-32"></div>
+            <div className="px-8 pb-8">
+              <div className="relative -mt-12 mb-8">
+                <div className="w-24 h-24 bg-[#0d0d16] rounded-2xl border-4 border-white/[0.06] shadow-2xl flex items-center justify-center text-4xl font-bold text-violet-400">
+                  {profile?.name?.charAt(0)}
+                </div>
               </div>
-            </div>
 
-            <h2 className="text-2xl font-bold mb-6">Edit Profile ({profile?.role})</h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {success && <div className="p-3 bg-green-50 text-green-700 rounded-lg text-sm">Profile updated successfully!</div>}
+              <h2 className="text-2xl font-bold mb-6 text-white">Edit Profile ({profile?.role})</h2>
               
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Display Name</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {success && <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-lg text-sm border border-emerald-500/20">Profile updated successfully!</div>}
+                
+                <div>
+                  <label className="block text-sm font-medium text-white/80 mb-1">Display Name</label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                  />
+                </div>
 
-              {profile?.role === 'bartender' && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Experience</label>
-                    <textarea
-                      rows={3}
-                      value={formData.experience}
-                      onChange={(e) => setFormData({...formData, experience: e.target.value})}
-                      placeholder="e.g. 5 years in craft cocktails, specialize in whiskey"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    ></textarea>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Availability</label>
-                    <input
-                      type="text"
-                      value={formData.availability}
-                      onChange={(e) => setFormData({...formData, availability: e.target.value})}
-                      placeholder="e.g. Evenings, Weekends only"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    />
-                  </div>
-                </>
-              )}
+                {profile?.role === 'bartender' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-white/80 mb-1">Experience</label>
+                      <textarea
+                        rows={3}
+                        value={formData.experience}
+                        onChange={(e) => setFormData({...formData, experience: e.target.value})}
+                        placeholder="e.g. 5 years in craft cocktails, specialize in whiskey"
+                        className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                      ></textarea>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-white/80 mb-1">Availability</label>
+                      <input
+                        type="text"
+                        value={formData.availability}
+                        onChange={(e) => setFormData({...formData, availability: e.target.value})}
+                        placeholder="e.g. Evenings, Weekends only"
+                        className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                      />
+                    </div>
+                  </>
+                )}
 
-              {profile?.role === 'venue' && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
-                    <input
-                      type="text"
-                      value={formData.location}
-                      onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      placeholder="Davenport, IA"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                    <textarea
-                      rows={3}
-                      value={formData.description}
-                      onChange={(e) => setFormData({...formData, description: e.target.value})}
-                      placeholder="Tell us about your venue..."
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    ></textarea>
-                  </div>
-                </>
-              )}
+                {profile?.role === 'venue' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-white/80 mb-1">Location</label>
+                      <input
+                        type="text"
+                        value={formData.location}
+                        onChange={(e) => setFormData({...formData, location: e.target.value})}
+                        placeholder="Davenport, IA"
+                        className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-white/80 mb-1">Description</label>
+                      <textarea
+                        rows={3}
+                        value={formData.description}
+                        onChange={(e) => setFormData({...formData, description: e.target.value})}
+                        placeholder="Tell us about your venue..."
+                        className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                      ></textarea>
+                    </div>
+                  </>
+                )}
 
-              {profile?.role === 'musician' && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Genre</label>
-                    <input
-                      type="text"
-                      value={formData.genre}
-                      onChange={(e) => setFormData({...formData, genre: e.target.value})}
-                      placeholder="e.g. Folk, Indie Rock, Jazz"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">External Links (comma separated)</label>
-                    <input
-                      type="text"
-                      value={formData.links}
-                      onChange={(e) => setFormData({...formData, links: e.target.value})}
-                      placeholder="Spotify link, Website, Instagram..."
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
-                    />
-                  </div>
-                </>
-              )}
+                {profile?.role === 'musician' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-white/80 mb-1">Genre</label>
+                      <input
+                        type="text"
+                        value={formData.genre}
+                        onChange={(e) => setFormData({...formData, genre: e.target.value})}
+                        placeholder="e.g. Folk, Indie Rock, Jazz"
+                        className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-white/80 mb-1">External Links (comma separated)</label>
+                      <input
+                        type="text"
+                        value={formData.links}
+                        onChange={(e) => setFormData({...formData, links: e.target.value})}
+                        placeholder="Spotify link, Website, Instagram..."
+                        className="w-full px-4 py-2 border border-white/[0.06] rounded-lg bg-white/[0.04] text-white placeholder-white/30 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
+                      />
+                    </div>
+                  </>
+                )}
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 disabled:opacity-50"
-              >
-                {loading ? 'Saving...' : 'Save Profile'}
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold py-3 rounded-lg hover:from-violet-700 hover:to-purple-700 disabled:opacity-50 transition-all"
+                >
+                  {loading ? 'Saving...' : 'Save Profile'}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
