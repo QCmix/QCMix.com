@@ -47,16 +47,14 @@ export default function BarOwnerRegistrationPage() {
       <section className="relative pt-20 pb-12 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/roles/Bars & Owners.jpg"
-            alt=""
+            src="/images/roles/bar_owner.jpg"
+            alt="Bar Owner & Management"
             fill
             className="object-cover opacity-10"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
         </div>
-
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-
         <div className="relative z-10 max-w-3xl mx-auto">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
@@ -70,7 +68,6 @@ export default function BarOwnerRegistrationPage() {
             </svg>
             <span className="text-indigo-600">Bar Owner</span>
           </div>
-
           <div className="flex items-center gap-4 mb-4">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center text-indigo-400">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
@@ -84,8 +81,72 @@ export default function BarOwnerRegistrationPage() {
           </div>
         </div>
       </section>
-      {/* ...existing code... */}
-    </main>
+
+      {/* ==================== PROGRESS STEPS ==================== */}
+      <section className="px-6 pb-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center justify-between">
+            {steps.map((step, index) => (
+              <div key={step.id} className="flex items-center">
+                <div className="flex flex-col items-center">
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
+                      currentStep >= step.id
+                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white'
+                        : 'bg-gray-100 text-gray-400 border border-gray-200'
+                    }`}
+                  >
+                    {currentStep > step.id ? (
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    ) : (
+                      step.id
+                    )}
+                  </div>
+                  <div className="mt-2 text-center hidden sm:block">
+                    <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-gray-900' : 'text-gray-400'}`}>
+                      {step.title}
+                    </p>
+                    <p className="text-xs text-gray-400">{step.description}</p>
+                  </div>
+                </div>
+                {index < steps.length - 1 && (
+                  <div
+                    className={`flex-1 h-0.5 mx-4 transition-all duration-300 ${
+                      currentStep > step.id ? 'bg-indigo-600' : 'bg-gray-200'
+                    }`}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FORM CONTENT ==================== */}
+      <section className="px-6 pb-32">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            key={currentStep}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg"
+          >
+            {/* Step 1: Owner Info */}
+            {currentStep === 1 && (
+              <div className="space-y-8">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Owner Information</h2>
+                  <p className="text-gray-500">Tell us about yourself and your role.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name *
+                    </label>
     seekingBookings: false,
     liquorLicense: '',
 
