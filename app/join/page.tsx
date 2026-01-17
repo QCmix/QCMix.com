@@ -48,23 +48,23 @@ const roles = [
 
 export default function JoinPage() {
 	return (
-		<main className="bg-[#08080f] min-h-screen">
+		<main className="bg-white min-h-screen">
 			{/* ==================== HERO ==================== */}
 			<section className="relative pt-32 pb-24 px-6 overflow-hidden">
 				{/* Background gradient orbs */}
-				<div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-				<div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] translate-y-1/2" />
+				<div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
+				<div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-400/10 rounded-full blur-[100px] translate-y-1/2" />
 
 				<div className="relative z-10 max-w-4xl mx-auto text-center">
 					{/* Badge */}
-					<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] text-sm text-white/60 mb-8">
+					<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 text-sm text-gray-500 mb-8">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
 							strokeWidth={1.5}
 							stroke="currentColor"
-							className="w-4 h-4 text-violet-400"
+							className="w-4 h-4 text-indigo-400"
 						>
 							<path
 								strokeLinecap="round"
@@ -76,14 +76,14 @@ export default function JoinPage() {
 					</div>
 
 					<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[0.95]">
-						<span className="text-white">Choose your</span>
+						<span className="text-gray-900">Choose your</span>
 						<br />
 						<span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-600 bg-clip-text text-transparent">
 							primary role
 						</span>
 					</h1>
 
-					<p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+					<p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
 						Select the role that best matches what you do most. Roles
 						determine permissions and tools — they're functional, not
 						status-based.
@@ -99,7 +99,7 @@ export default function JoinPage() {
 							<Link
 								key={role.id}
 								href={role.href}
-								className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-white/[0.02] border border-white/[0.06] hover:border-indigo-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(79,70,229,0.15)]"
+								className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-gray-100 border border-gray-200 hover:border-indigo-400 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.08)]"
 							>
 								{/* Background Image */}
 								<Image
@@ -109,19 +109,19 @@ export default function JoinPage() {
 									className="object-cover transition-transform duration-700 group-hover:scale-110"
 								/>
 								{/* Gradient Overlay */}
-								<div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-[#08080f]/80 to-transparent" />
+								<div className="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent" />
 
 								{/* Content */}
 								<div className="absolute inset-0 flex flex-col justify-end p-8">
-									<h2 className="text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+									<h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
 										{role.title}
 									</h2>
-									<p className="text-white/60 text-sm mb-6">
+									<p className="text-gray-500 text-sm mb-6">
 										{role.subtitle}
 									</p>
 
 									{/* CTA */}
-									<div className="flex items-center gap-2 text-indigo-400 group-hover:text-indigo-300 transition-colors">
+									<div className="flex items-center gap-2 text-indigo-500 group-hover:text-indigo-700 transition-colors">
 										<span className="text-sm font-medium">Continue</span>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +142,7 @@ export default function JoinPage() {
 								</div>
 
 								{/* Hover Glow */}
-								<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-indigo-600/20 to-transparent pointer-events-none" />
+								<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-indigo-600/10 to-transparent pointer-events-none" />
 							</Link>
 						))}
 					</div>
@@ -152,7 +152,7 @@ export default function JoinPage() {
 			{/* ==================== INFO BAR ==================== */}
 			<section className="px-6 pb-32">
 				<div className="max-w-4xl mx-auto">
-					<div className="flex flex-col md:flex-row items-center justify-center gap-8 py-8 border-t border-b border-white/[0.06]">
+					<div className="flex flex-col md:flex-row items-center justify-center gap-8 py-8 border-t border-b border-gray-200">
 						<div className="flex items-center gap-3">
 							<div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
 								<svg
@@ -170,12 +170,12 @@ export default function JoinPage() {
 									/>
 								</svg>
 							</div>
-							<span className="text-white/60 text-sm">
+							<span className="text-gray-500 text-sm">
 								One role required
 							</span>
 						</div>
 
-						<div className="hidden md:block w-px h-8 bg-white/[0.06]" />
+						<div className="hidden md:block w-px h-8 bg-gray-200" />
 
 						<div className="flex items-center gap-3">
 							<div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center">
@@ -194,12 +194,12 @@ export default function JoinPage() {
 									/>
 								</svg>
 							</div>
-							<span className="text-white/60 text-sm">
+							<span className="text-gray-500 text-sm">
 								Add context later
 							</span>
 						</div>
 
-						<div className="hidden md:block w-px h-8 bg-white/[0.06]" />
+						<div className="hidden md:block w-px h-8 bg-gray-200" />
 
 						<div className="flex items-center gap-3">
 							<div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center">
@@ -218,7 +218,7 @@ export default function JoinPage() {
 									/>
 								</svg>
 							</div>
-							<span className="text-white/60 text-sm">
+							<span className="text-gray-500 text-sm">
 								Role changes reviewed
 							</span>
 						</div>
@@ -231,7 +231,7 @@ export default function JoinPage() {
 				<div className="max-w-4xl mx-auto text-center">
 					<Link
 						href="/"
-						className="inline-flex items-center gap-2 text-white/40 hover:text-indigo-400 transition-colors group"
+						className="inline-flex items-center gap-2 text-gray-400 hover:text-indigo-600 transition-colors group"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
