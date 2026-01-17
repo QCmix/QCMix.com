@@ -120,82 +120,80 @@ export default function BarWorkerRegistrationPage() {
                     <p className="text-xs text-white/30">{step.description}</p>
                   </div>
                 </div>
-                {index < steps.length - 1 && (
-                  <div className={`flex-1 h-0.5 mx-4 transition-all duration-300 ${currentStep > step.id ? 'bg-slate-600' : 'bg-white/[0.06]'}`} />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                return (
+                  <main className="bg-white min-h-screen text-gray-900">
+                    <section className="relative pt-20 pb-12 px-6 overflow-hidden">
+                      <div className="absolute inset-0 z-0">
+                        <Image src="/images/roles/bar_worker.jpg" alt="Bar Worker" fill className="object-cover opacity-10" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
+                      </div>
+                      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
+                      <div className="relative z-10 max-w-3xl mx-auto">
+                        <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+                          <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <Link href="/join" className="hover:text-indigo-600 transition-colors">Join</Link>
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-indigo-600">Bar Worker</span>
+                        </div>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center text-indigo-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h1 className="text-3xl md:text-4xl font-bold">Join as Bar Worker</h1>
+                            <p className="text-gray-500 mt-1">Barback, BOH, security, and door staff</p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
 
-      <section className="px-6 pb-32">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            key={currentStep}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-[#0d0d16] border border-white/[0.06] rounded-3xl p-8 md:p-12"
-          >
-            {currentStep === 1 && (
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2">Basic Information</h2>
-                  <p className="text-white/50">Tell us about yourself.</p>
-                </div>
+                    <section className="px-6 pb-8">
+                      <div className="max-w-3xl mx-auto">
+                        <div className="flex items-center justify-between">
+                          {steps.map((step, index) => (
+                            <div key={step.id} className="flex items-center">
+                              <div className="flex flex-col items-center">
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
+                                  currentStep >= step.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white' : 'bg-gray-100 text-gray-400 border border-gray-200'
+                                }`}>
+                                  {currentStep > step.id ? (
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                  ) : step.id}
+                                </div>
+                                <div className="mt-2 text-center hidden sm:block">
+                                  <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-gray-900' : 'text-gray-400'}`}>{step.title}</p>
+                                  <p className="text-xs text-gray-400">{step.description}</p>
+                                </div>
+                              </div>
+                              {index < steps.length - 1 && (
+                                <div className={`h-0.5 mx-4 flex-1 transition-all duration-300 ${currentStep > step.id ? 'bg-indigo-600' : 'bg-gray-200'}`} />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">First Name *</label>
-                    <input
-                      type="text"
-                      value={formData.firstName}
-                      onChange={(e) => updateFormData('firstName', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-white placeholder-white/30 focus:outline-none focus:border-slate-500/50 focus:ring-1 focus:ring-slate-500/50 transition-all"
-                      placeholder="John"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">Last Name *</label>
-                    <input
-                      type="text"
-                      value={formData.lastName}
-                      onChange={(e) => updateFormData('lastName', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-white placeholder-white/30 focus:outline-none focus:border-slate-500/50 focus:ring-1 focus:ring-slate-500/50 transition-all"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white/70 mb-2">Email *</label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => updateFormData('email', e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-white placeholder-white/30 focus:outline-none focus:border-slate-500/50 focus:ring-1 focus:ring-slate-500/50 transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">Phone</label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => updateFormData('phone', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-white placeholder-white/30 focus:outline-none focus:border-slate-500/50 focus:ring-1 focus:ring-slate-500/50 transition-all"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">City *</label>
-                    <select
-                      value={formData.city}
-                      onChange={(e) => updateFormData('city', e.target.value)}
+                    <section className="px-6 pb-8">
+                      <div className="max-w-3xl mx-auto">
+                        <motion.div
+                          key={currentStep}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg"
+                        >
+                          {/* Step 1: ... */}
                       className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.06] text-white focus:outline-none focus:border-slate-500/50 focus:ring-1 focus:ring-slate-500/50 transition-all appearance-none cursor-pointer"
                     >
                       <option value="" className="bg-[#0d0d16]">Select city</option>
