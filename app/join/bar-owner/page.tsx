@@ -39,121 +39,29 @@ const entertainmentTypes = [
 ];
 
 export default function BarOwnerRegistrationPage() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  return (
-    <main className="bg-white min-h-screen text-gray-900">
-      {/* ==================== HERO HEADER ==================== */}
-      <section className="relative pt-20 pb-12 px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/roles/bar_owner.jpg"
-            alt="Bar Owner & Management"
-            fill
-            className="object-cover opacity-10"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
-        </div>
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-            <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <Link href="/join" className="hover:text-indigo-600 transition-colors">Join</Link>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <span className="text-indigo-600">Bar Owner</span>
-          </div>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center text-indigo-400">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
-              </svg>
-            </div>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold">Join as Bar Owner</h1>
-              <p className="text-gray-500 mt-1">Ownership, management, and venue operations</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== PROGRESS STEPS ==================== */}
-      <section className="px-6 pb-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-center justify-between">
-            {steps.map((step, index) => (
-              <div key={step.id} className="flex items-center">
-                <div className="flex flex-col items-center">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
-                      currentStep >= step.id
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white'
-                        : 'bg-gray-100 text-gray-400 border border-gray-200'
-                    }`}
-                  >
-                    {currentStep > step.id ? (
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    ) : (
-                      step.id
-                    )}
-                  </div>
-                  <div className="mt-2 text-center hidden sm:block">
-                    <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-gray-900' : 'text-gray-400'}`}>
-                      {step.title}
-                    </p>
-                    <p className="text-xs text-gray-400">{step.description}</p>
-                  </div>
-                </div>
-                {index < steps.length - 1 && (
-                  <div
-                    className={`flex-1 h-0.5 mx-4 transition-all duration-300 ${
-                      currentStep > step.id ? 'bg-indigo-600' : 'bg-gray-200'
-                    }`}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== FORM CONTENT ==================== */}
-      <section className="px-6 pb-32">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            key={currentStep}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg"
-          >
-            {/* Step 1: Owner Info */}
-            {currentStep === 1 && (
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Owner Information</h2>
-                  <p className="text-gray-500">Tell us about yourself and your role.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name *
-                    </label>
-    seekingBookings: false,
+  const [formData, setFormData] = useState({
+    ownerFirstName: '',
+    ownerLastName: '',
+    email: '',
+    phone: '',
+    role: '',
+    venueName: '',
+    venueAddress: '',
+    city: '',
+    venueType: '',
+    capacity: '',
+    yearsInBusiness: '',
+    entertainment: [] as string[],
+    hasKitchen: false,
     liquorLicense: '',
-
-    // Step 4: Additional
+    hiring: false,
+    seekingDistributors: false,
+    seekingBookings: false,
     description: '',
     agreeToTerms: false,
   });
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const updateFormData = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -169,15 +77,11 @@ export default function BarOwnerRegistrationPage() {
   };
 
   const handleNext = () => {
-    if (currentStep < steps.length) {
-      setCurrentStep(prev => prev + 1);
-    }
+    if (currentStep < steps.length) setCurrentStep(prev => prev + 1);
   };
 
   const handleBack = () => {
-    if (currentStep > 1) {
-      setCurrentStep(prev => prev - 1);
-    }
+    if (currentStep > 1) setCurrentStep(prev => prev - 1);
   };
 
   const handleSubmit = async () => {
@@ -186,32 +90,19 @@ export default function BarOwnerRegistrationPage() {
     setIsSubmitting(false);
   };
 
+  // ...other hooks and handlers...
+
   return (
-    <main className="bg-[#08080f] min-h-screen">
-      {/* ==================== HERO HEADER ==================== */}
-      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/roles/Bars & Owners.jpg"
-            alt=""
-            fill
-            className="object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08080f] via-[#08080f]/95 to-[#08080f]" />
-        </div>
-
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-white/40 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <Link href="/join" className="hover:text-white transition-colors">Join</Link>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+    <main className="bg-[#08080f] min-h-screen text-white">
+      {/* ==================== HERO SECTION ==================== */}
+      <section className="px-6 pt-8 pb-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center text-amber-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+              </svg>
+            </div>
             <span className="text-white/60">Bar Owner</span>
           </div>
 
