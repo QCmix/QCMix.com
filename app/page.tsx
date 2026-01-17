@@ -153,30 +153,147 @@ const industryRoles = [
 export default function HomePage() {
   return (
     <main className="bg-[#08080f] text-white min-h-screen">
-      <section className="max-w-7xl mx-auto py-24 px-6 text-center">
-        <h1 className="text-5xl font-bold mb-6">Find your night in the Quad Cities.</h1>
-        <p className="text-xl mb-10">Bars, music, and the people who make it happen—documented in one place.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <a href="/musicians" className="px-8 py-4 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition">Explore the Scene</a>
-          <a href="/industry/join" className="px-8 py-4 rounded-lg border border-neutral-800 text-neutral-100 font-semibold hover:bg-neutral-900 transition">Industry Join</a>
+      {/* ==================== HERO SECTION ==================== */}
+      <section className="relative py-24 px-6 overflow-hidden">
+        {/* Background gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px] -translate-y-1/2" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] translate-y-1/2" />
+
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] text-sm text-white/60 mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 text-violet-400">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+            <span>Quad Cities Nightlife</span>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[0.95]">
+            <span className="text-white">Find your night in the</span>
+            <br />
+            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              Quad Cities
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed mb-12">
+            Bars, music, and the people who make it happen—documented in one place.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <a href="/musicians" className="px-8 py-4 rounded-lg bg-gradient-to-r from-violet-600 to-purple-600 text-white font-semibold hover:from-violet-700 hover:to-purple-700 transition-all">
+              Explore the Scene
+            </a>
+            <a href="/industry/join" className="px-8 py-4 rounded-lg border border-white/[0.06] text-white font-semibold hover:bg-white/[0.04] transition-all">
+              Industry Join
+            </a>
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          <a href="/bars" className="border border-neutral-800 rounded-xl p-8 hover:border-indigo-600 transition">
-            <h2 className="text-2xl font-bold mb-2">Bars</h2>
-            <p className="text-base">Discover venues, owners, and what makes each bar unique.</p>
-          </a>
-          <a href="/musicians" className="border border-neutral-800 rounded-xl p-8 hover:border-indigo-600 transition">
-            <h2 className="text-2xl font-bold mb-2">Music</h2>
-            <p className="text-base">Explore local bands, solo acts, and the music scene.</p>
-          </a>
-          <a href="/bartenders" className="border border-neutral-800 rounded-xl p-8 hover:border-indigo-600 transition">
-            <h2 className="text-2xl font-bold mb-2">People</h2>
-            <p className="text-base">Meet bartenders and staff who make the night work.</p>
-          </a>
-          <a href="/editorial" className="border border-neutral-800 rounded-xl p-8 hover:border-indigo-600 transition">
-            <h2 className="text-2xl font-bold mb-2">Stories</h2>
-            <p className="text-base">Read features and stories from inside the scene.</p>
-          </a>
+      </section>
+
+      {/* ==================== FEATURE GRID ==================== */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Everything you need to know about the scene
+            </h2>
+            <p className="text-lg text-white/50">
+              From venues to musicians, we document the Quad Cities nightlife ecosystem
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <a
+                key={index}
+                href={feature.link}
+                className="group relative p-8 rounded-2xl bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/30 transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center text-violet-400 mb-6 group-hover:scale-110 transition-transform">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-violet-300 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-white/50 leading-relaxed">
+                  {feature.description}
+                </p>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-violet-600/10 to-transparent pointer-events-none rounded-2xl" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== ROLE CARDS SECTION ==================== */}
+      <section className="py-24 px-6 bg-gradient-to-b from-[#08080f] to-[#0a0a12]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Built for everyone in the scene
+            </h2>
+            <p className="text-lg text-white/50 max-w-2xl mx-auto">
+              Whether you're behind the bar, on stage, or making the business work—QCmix connects the right people
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {roleCards.map((role, index) => (
+              <div
+                key={index}
+                className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
+              >
+                <img
+                  src={role.image}
+                  alt={role.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-[#08080f]/60 to-transparent" />
+                
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">
+                    {role.title}
+                  </h3>
+                  <p className="text-white/50 text-sm mb-4 leading-relaxed">
+                    {role.description}
+                  </p>
+                  <p className="text-amber-400 text-sm font-medium italic">
+                    {role.tagline}
+                  </p>
+                </div>
+
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-violet-600/20 to-transparent pointer-events-none" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== CALL TO ACTION ==================== */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Ready to be part of the scene?
+          </h2>
+          <p className="text-lg text-white/50 mb-12 max-w-2xl mx-auto">
+            Join the Quad Cities nightlife community. Connect with venues, musicians, and industry professionals.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/join" 
+              className="px-8 py-4 rounded-lg bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold hover:from-violet-700 hover:to-purple-700 transition-all transform hover:scale-105"
+            >
+              Join the Community
+            </a>
+            <a 
+              href="/editorial" 
+              className="px-8 py-4 rounded-lg border border-white/[0.06] text-white font-semibold hover:bg-white/[0.04] transition-all"
+            >
+              Read the Editorial
+            </a>
+          </div>
         </div>
       </section>
     </main>
