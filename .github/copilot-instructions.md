@@ -4,10 +4,11 @@ Short reference to get an AI coding agent productive in this repository.
 
 Key facts
 ---------
-- Framework: Next.js (app directory, Next 14) with TypeScript and Tailwind CSS.
-- Scripts: use `npm run dev`, `npm run build`, `npm start`, `npm run lint` (see `package.json`).
-- Styling: Tailwind config in `tailwind.config.js` — content paths include `app/**`, `components/**`, `context/**`.
+- Framework: Next.js 14 (app directory) with TypeScript and Tailwind CSS.
+- Scripts: `npm run dev`, `npm run build`, `npm start`, `npm run lint` (see `package.json`).
+- Styling: Tailwind v4 with custom theme tokens (`bg.*`, `ink.*`, `brand.*`) — see `tailwind.config.js`.
 - Path alias: `@/*` maps to repo root (see `tsconfig.json`).
+- Dependencies: Firebase, Supabase, Framer Motion, Lucide React.
 
 Architecture & patterns
 -----------------------
@@ -17,6 +18,7 @@ Architecture & patterns
 - Server DB: Supabase server client is created in `lib/supabase/server.ts` using `SUPABASE_SERVICE_ROLE_KEY` — treat that key as secret and only use server-side.
 - Role-based protection: `middleware.ts` redirects unauthenticated/role-less requests from `/dashboard` to `/industry-join` — it checks the `qcmix_role` cookie.
 - Role config: role and permission mappings live under `config/roleConfigs.ts` and `lib/roles.ts`.
+- Server Actions: located in `app/actions/` — handle server-side logic like setting cookies and account activation.
 
 Env & secrets
 -------------
@@ -30,6 +32,7 @@ Common tasks & where to change them
 - Update auth behavior: modify `context/AuthContext.tsx` (client) and `firebase/config.ts` (credentials). For server-side auth flows, prefer Supabase server client.
 - Protect routes: `middleware.ts` centrally enforces `/dashboard` access via cookie `qcmix_role`. If changing role logic, update `middleware.ts` and any code that sets that cookie.
 - UI components: reusable components live in `components/` and `app/*/components/`. Use existing `Header`, `PageTransition`, and layout patterns in `app/layout.tsx`.
+- Add server actions: create in `app/actions/` directory for server-side operations like cookie management and account state changes.
 
 Conventions & idioms
 --------------------
@@ -37,6 +40,8 @@ Conventions & idioms
 - Server-side Supabase: `persistSession` is set to `false` in `lib/supabase/server.ts` — expect stateless server calls.
 - Styling: prefer Tailwind utility classes and the project's extended theme tokens (colors under `brand`, `ink`, etc.).
 - Animations/UX: `PageTransition` wrapper is used around route children for consistent transitions.
+- Global layout: `app/layout.tsx` includes noise texture overlay and radial gradient background pattern — maintain this aesthetic when adding pages.
+- Color system: Use `bg.*` tokens for backgrounds, `ink.*` for text hierarchy, `brand.*` for accent colors (defined in `tailwind.config.js`).
 
 Editing guidelines for agents
 ----------------------------
