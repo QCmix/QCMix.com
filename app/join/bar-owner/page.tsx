@@ -41,28 +41,51 @@ const entertainmentTypes = [
 export default function BarOwnerRegistrationPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  return (
+    <main className="bg-white min-h-screen text-gray-900">
+      {/* ==================== HERO HEADER ==================== */}
+      <section className="relative pt-20 pb-12 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/roles/Bars & Owners.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
+        </div>
 
-  const [formData, setFormData] = useState({
-    // Step 1: Owner Info
-    ownerFirstName: '',
-    ownerLastName: '',
-    email: '',
-    phone: '',
-    role: '',
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
 
-    // Step 2: Venue Details
-    venueName: '',
-    venueAddress: '',
-    city: '',
-    venueType: '',
-    capacity: '',
-    yearsInBusiness: '',
+        <div className="relative z-10 max-w-3xl mx-auto">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+            <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <Link href="/join" className="hover:text-indigo-600 transition-colors">Join</Link>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-indigo-600">Bar Owner</span>
+          </div>
 
-    // Step 3: Operations
-    entertainment: [] as string[],
-    hasKitchen: false,
-    hiring: false,
-    seekingDistributors: false,
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center text-indigo-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold">Join as Bar Owner</h1>
+              <p className="text-gray-500 mt-1">Ownership, management, and venue operations</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ...existing code... */}
+    </main>
     seekingBookings: false,
     liquorLicense: '',
 
