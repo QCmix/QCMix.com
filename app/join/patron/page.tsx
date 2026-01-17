@@ -58,36 +58,34 @@ export default function PatronRegistrationPage() {
   };
 
   return (
-    <main className="bg-[#08080f] min-h-screen text-white">
-      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
+    <main className="bg-white min-h-screen text-gray-900">
+      <section className="relative pt-20 pb-12 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/roles/The Community.jpg" alt="" fill className="object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08080f] via-[#08080f]/95 to-[#08080f]" />
+          <Image src="/images/roles/Patron.jpg" alt="Patron" fill className="object-cover opacity-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
         </div>
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
         <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-white/40 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+            <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <Link href="/join" className="hover:text-white transition-colors">Join</Link>
+            <Link href="/join" className="hover:text-indigo-600 transition-colors">Join</Link>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <span className="text-white/60">Community</span>
+            <span className="text-indigo-600">Community</span>
           </div>
-
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-blue-500/20 flex items-center justify-center text-sky-400">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center text-indigo-400">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
               </svg>
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold">Join the Community</h1>
-              <p className="text-white/50 mt-1">Explore and support the Quad Cities nightlife</p>
+              <p className="text-gray-500 mt-1">Explore and support the Quad Cities nightlife</p>
             </div>
           </div>
         </div>
@@ -100,7 +98,7 @@ export default function PatronRegistrationPage() {
               <div key={step.id} className="flex items-center flex-1">
                 <div className="flex flex-col items-center flex-1">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
-                    currentStep >= step.id ? 'bg-gradient-to-r from-sky-600 to-blue-600 text-white' : 'bg-white/[0.04] text-white/40 border border-white/[0.06]'
+                    currentStep >= step.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white' : 'bg-gray-100 text-gray-400 border border-gray-200'
                   }`}>
                     {currentStep > step.id ? (
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,12 +107,12 @@ export default function PatronRegistrationPage() {
                     ) : step.id}
                   </div>
                   <div className="mt-2 text-center hidden sm:block">
-                    <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-white' : 'text-white/40'}`}>{step.title}</p>
-                    <p className="text-xs text-white/30">{step.description}</p>
+                    <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-gray-900' : 'text-gray-400'}`}>{step.title}</p>
+                    <p className="text-xs text-gray-400">{step.description}</p>
                   </div>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className={`h-0.5 mx-4 flex-1 transition-all duration-300 ${currentStep > step.id ? 'bg-sky-600' : 'bg-white/[0.06]'}`} />
+                  <div className={`h-0.5 mx-4 flex-1 transition-all duration-300 ${currentStep > step.id ? 'bg-indigo-600' : 'bg-gray-200'}`} />
                 )}
               </div>
             ))}
@@ -122,7 +120,7 @@ export default function PatronRegistrationPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-32">
+      <section className="px-6 pb-8">
         <div className="max-w-3xl mx-auto">
           <motion.div
             key={currentStep}
@@ -130,9 +128,9 @@ export default function PatronRegistrationPage() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-[#0d0d16] border border-white/[0.06] rounded-3xl p-8 md:p-12"
+            className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg"
           >
-            {currentStep === 1 && (
+            {/* Step 1: ... */}
               <div className="space-y-8">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Basic Information</h2>

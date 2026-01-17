@@ -25,82 +25,80 @@ export default function DistributorRegistrationPage() {
     phone: '',
     territory: '',
     
-    productTypes: [] as string[],
-    brands: '',
-    minimumOrders: '',
-    
-    deliverySchedule: '',
-    accountSupport: false,
-    
-    bio: '',
-    agreeToTerms: false,
-  });
-
-  const updateFormData = (field: string, value: any) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const toggleArrayItem = (field: string, item: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: (prev[field as keyof typeof prev] as string[]).includes(item)
-        ? (prev[field as keyof typeof prev] as string[]).filter(i => i !== item)
-        : [...(prev[field as keyof typeof prev] as string[]), item],
-    }));
-  };
-
-  const handleNext = () => {
-    if (currentStep < steps.length) setCurrentStep(prev => prev + 1);
-  };
-
-  const handleBack = () => {
-    if (currentStep > 1) setCurrentStep(prev => prev - 1);
-  };
-
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-  };
-
-  return (
-    <main className="bg-[#08080f] min-h-screen text-white">
-      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image src="/images/roles/Distributors & Industry Partners.jpg" alt="" fill className="object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08080f] via-[#08080f]/95 to-[#08080f]" />
-        </div>
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-white/40 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <Link href="/join" className="hover:text-white transition-colors">Join</Link>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <span className="text-white/60">Distributor</span>
+    return (
+      <main className="bg-white min-h-screen text-gray-900">
+        <section className="relative pt-20 pb-12 px-6 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image src="/images/roles/Distributors-&-Industry-Partners.jpg" alt="Distributor" fill className="object-cover opacity-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
           </div>
-
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center text-emerald-400">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2" />
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+              <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
+              <Link href="/join" className="hover:text-indigo-600 transition-colors">Join</Link>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <span className="text-indigo-600">Distributor</span>
             </div>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold">Join as Distributor</h1>
-              <p className="text-white/50 mt-1">Beverage distribution and brand representation</p>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center text-indigo-400">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                </svg>
+              </div>
+              <div>
+                <h1 className="text-3xl md:text-4xl font-bold">Join as Distributor</h1>
+                <p className="text-gray-500 mt-1">Beverage distribution and brand representation</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="px-6 pb-8">
-        <div className="max-w-3xl mx-auto">
+        <section className="px-6 pb-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center justify-between">
+              {steps.map((step, index) => (
+                <div key={step.id} className="flex items-center">
+                  <div className="flex flex-col items-center">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
+                      currentStep >= step.id ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white' : 'bg-gray-100 text-gray-400 border border-gray-200'
+                    }`}>
+                      {currentStep > step.id ? (
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      ) : step.id}
+                    </div>
+                    <div className="mt-2 text-center hidden sm:block">
+                      <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-gray-900' : 'text-gray-400'}`}>{step.title}</p>
+                      <p className="text-xs text-gray-400">{step.description}</p>
+                    </div>
+                  </div>
+                  {index < steps.length - 1 && (
+                    <div className={`h-0.5 mx-4 flex-1 transition-all duration-300 ${currentStep > step.id ? 'bg-indigo-600' : 'bg-gray-200'}`} />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 pb-8">
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              key={currentStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg"
+            >
+              {/* Step 1: ... */}
           <div className="flex items-center justify-between">
             {steps.map((step, index) => (
               <div key={step.id} className="flex items-center">
