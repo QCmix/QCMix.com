@@ -1,5 +1,18 @@
 'use client';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Industry Partners & Distributors | QCMix - Quad Cities B2B Nightlife",
+  description: "Connect with bars, venues, and nightlife businesses in the Quad Cities as a distributor, supplier, or industry professional. Access the complete ecosystem.",
+  keywords: "distributors, suppliers, Quad Cities B2B, beverage distribution, industry partners, nightlife suppliers",
+  openGraph: {
+    title: "Industry Partners | QCMix - Connect with Quad Cities Nightlife",
+    description: "Access the Quad Cities nightlife business network. Connect with venues, bars, and suppliers.",
+    url: "https://qcmix.com/industry",
+  },
+};
+
 export default function IndustryPage() {
   return (
     <div className="bg-black text-white min-h-screen">

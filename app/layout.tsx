@@ -6,8 +6,57 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "QCMix",
-  description: "Quad Cities nightlife and music ecosystem",
+  title: "QCMix - Quad Cities Nightlife Platform for Bars, Venues & Musicians",
+  description: "QCMix connects bartenders, musicians, venue owners, and nightlife enthusiasts across the Quad Cities. Discover bars, explore venues, and build the nightlife community.",
+  keywords: [
+    "Quad Cities bars",
+    "Davenport nightlife",
+    "Bettendorf venues",
+    "Iowa bartenders",
+    "musicians Iowa",
+    "Quad Cities nightlife",
+    "live music QC",
+    "bartender network",
+    "nightlife community",
+    "Quad Cities events",
+  ].join(", "),
+  metadataBase: new URL("https://qcmix.com"),
+  openGraph: {
+    title: "QCMix - Quad Cities Nightlife Platform",
+    description: "Connect with bartenders, musicians, and venues in the Quad Cities. Explore nightlife, discover events, and build community.",
+    url: "https://qcmix.com",
+    siteName: "QCMix",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "QCMix - Quad Cities Nightlife",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QCMix - Quad Cities Nightlife",
+    description: "Connect with bartenders, musicians, and venues in the Quad Cities.",
+    images: ["/images/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://qcmix.com",
+  },
 };
 
 export default function RootLayout({
@@ -17,6 +66,64 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        {/* JSON-LD Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "QCMix",
+              url: "https://qcmix.com",
+              logo: "https://qcmix.com/logo.png",
+              description: "Quad Cities nightlife platform connecting bartenders, musicians, venue owners, and patrons",
+              sameAs: [
+                "https://facebook.com/qcmix",
+                "https://instagram.com/qcmix",
+                "https://twitter.com/qcmix",
+              ],
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "IA",
+                addressCountry: "US",
+                areaServed: ["Davenport", "Bettendorf", "Cedar Rapids", "Dubuque"],
+              },
+            }),
+          }}
+        />
+
+        {/* JSON-LD LocalBusiness Schema for Quad Cities */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "QCMix",
+              description: "Nightlife and music community platform for Quad Cities",
+              url: "https://qcmix.com",
+              areaServed: {
+                "@type": "GeoShape",
+                geoMidpoint: {
+                  "@type": "GeoCoordinates",
+                  latitude: "41.5868",
+                  longitude: "-90.6646",
+                },
+                geoRadius: "25000",
+              },
+              potentialAction: {
+                "@type": "Action",
+                actionStatus: "PotentialActionStatus",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://qcmix.com/join",
+                },
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="
         h-full
         min-h-screen

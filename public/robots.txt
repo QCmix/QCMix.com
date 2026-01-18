@@ -1,0 +1,34 @@
+# QCMix - Quad Cities Nightlife Platform
+# Robot crawling directives for search engine optimization
+
+User-agent: *
+Allow: /
+Allow: /bars
+Allow: /musicians
+Allow: /bartenders
+Allow: /discover
+Allow: /explore
+Allow: /editorial
+Allow: /join
+Allow: /dashboard
+Allow: /industry
+Allow: /understand
+Allow: /read
+Allow: /about
+Allow: /privacy
+Allow: /terms
+Allow: /cookies
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /dashboard/*/edit
+
+# Specify sitemap location
+Sitemap: https://qcmix.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Respect robots.txt
+User-agent: *
+Allow: /

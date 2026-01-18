@@ -1,5 +1,18 @@
 'use client';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Musicians in the Quad Cities | QCMix - Book Gigs & Promote Music",
+  description: "Musicians and artists in the Quad Cities can discover venues, book gigs, and build audiences. Connect with Davenport, Bettendorf, and Cedar Rapids venues for live performances.",
+  keywords: "Quad Cities musicians, local bands, live music, music venues Iowa, booking agent, artist network, perform locally",
+  openGraph: {
+    title: "Quad Cities Musicians | QCMix - Book Your Next Gig",
+    description: "Connect with venues and book performances in the Quad Cities. Grow your music career locally.",
+    url: "https://qcmix.com/musicians",
+  },
+};
+
 export default function MusiciansPage() {
   return (
     <div className="bg-black text-white min-h-screen">

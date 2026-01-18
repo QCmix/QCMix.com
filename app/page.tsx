@@ -1,9 +1,67 @@
 'use client';
 
 import { useEffect } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "QCMix - Quad Cities Nightlife Platform for Bartenders, Musicians & Venues",
+  description: "Connect with the Quad Cities nightlife community. QCMix is where bartenders, musicians, venue owners, and patrons discover opportunities and build community together.",
+  keywords: "Quad Cities bars, Davenport nightlife, bartender jobs, live music QC, Iowa venues, Bettendorf nightlife",
+  openGraph: {
+    title: "QCMix - Quad Cities Nightlife Community",
+    description: "Connect with bartenders, musicians, venues, and patrons in the Quad Cities.",
+    url: "https://qcmix.com",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+  },
+};
 
 export default function HomePage() {
   useEffect(() => {
+    // FAQ Schema for homepage
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is QCMix?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "QCMix is a platform connecting bartenders, musicians, venue owners, and nightlife enthusiasts in the Quad Cities. It helps people discover opportunities, events, and community in the region's vibrant nightlife scene."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "How can I join QCMix?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "You can join QCMix by selecting your role: bartender, venue owner, musician, patron, distributor, or bar worker. Click on the 'Join' button to get started."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "Is QCMix free to use?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, QCMix is free to join and explore. You can create an account, connect with other nightlife professionals, and discover opportunities in the Quad Cities."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "What Quad Cities areas does QCMix cover?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "QCMix focuses on the Quad Cities region including Davenport, Bettendorf, Cedar Rapids, and surrounding Iowa areas, connecting the entire region's nightlife community."
+          }
+        }
+      ]
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+
     // Smooth scroll
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLAnchorElement;
