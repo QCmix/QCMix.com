@@ -3,18 +3,18 @@ import { getCurrentUser } from "@/lib/user";
 export default async function WorkerHome() {
   const user = await getCurrentUser();
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50">
+    <main className="min-h-screen bg-gradient-to-br from-black via-black to-black text-white">
       {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-20">
+      <div className="border-b border-white/10 bg-black/50 backdrop-blur-sm sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-baseline justify-between">
             <div>
               <h1 className="text-4xl font-bold tracking-tight">Operations Board</h1>
-              <p className="mt-2 text-sm text-slate-400">Shift assignments. Venue coordination. Team clarity.</p>
+              <p className="mt-2 text-sm text-white/60">Shift assignments. Venue coordination. Team clarity.</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-slate-400">Bar Operations</p>
-              <p className="text-xs text-slate-500 mt-1">On Duty</p>
+              <p className="text-sm text-white/60">Bar Operations</p>
+              <p className="text-xs text-white/40 mt-1">On Duty</p>
             </div>
           </div>
         </div>
@@ -24,28 +24,28 @@ export default async function WorkerHome() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Quick Status */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="rounded-lg border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-4">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Your Shift</p>
-            <p className="mt-2 text-sm font-semibold">9 PM - 2 AM</p>
-            <p className="text-xs text-slate-500 mt-1">The Vault · Tonight</p>
+          <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-4">
+            <p className="text-xs font-bold text-white/60 uppercase tracking-wide">Your Shift</p>
+            <p className="mt-2 text-sm font-semibold text-qc-primary">9 PM - 2 AM</p>
+            <p className="text-xs text-white/40 mt-1">The Vault · Tonight</p>
           </div>
 
-          <div className="rounded-lg border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-4">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Team</p>
-            <p className="mt-2 text-sm font-semibold">8 People</p>
-            <p className="text-xs text-slate-500 mt-1">All checked in</p>
+          <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-4">
+            <p className="text-xs font-bold text-white/60 uppercase tracking-wide">Team</p>
+            <p className="mt-2 text-sm font-semibold text-qc-orange">8 People</p>
+            <p className="text-xs text-white/40 mt-1">All checked in</p>
           </div>
 
-          <div className="rounded-lg border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-4">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Venue Status</p>
-            <p className="mt-2 text-sm font-semibold">Busy</p>
-            <p className="text-xs text-slate-500 mt-1">80% capacity</p>
+          <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-4">
+            <p className="text-xs font-bold text-white/60 uppercase tracking-wide">Venue Status</p>
+            <p className="mt-2 text-sm font-semibold text-qc-yellow">Busy</p>
+            <p className="text-xs text-white/40 mt-1">80% capacity</p>
           </div>
 
-          <div className="rounded-lg border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-4">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Updates</p>
-            <p className="mt-2 text-sm font-semibold">2 New</p>
-            <p className="text-xs text-slate-500 mt-1">From manager</p>
+          <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm p-4">
+            <p className="text-xs font-bold text-white/60 uppercase tracking-wide">Updates</p>
+            <p className="mt-2 text-sm font-semibold text-qc-pink">2 New</p>
+            <p className="text-xs text-white/40 mt-1">From manager</p>
           </div>
         </div>
 
