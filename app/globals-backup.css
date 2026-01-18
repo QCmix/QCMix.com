@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================================================
+   QCmix — Design System Foundation
+   Editorial-first / Dark / Authority-led
+================================================== */
+
+/* --------------------------------------------------
+   Base Reset & Rendering
+-------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  font-feature-settings: "ss01", "ss02", "liga", "kern";
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------
+   Design System Layers
+-------------------------------------------------- */
+
+@layer components {
+  /* Surface System */
+  .surface-glass {
+    background: var(--color-bg-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-line);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+  
+  .surface-card {
+    background: rgba(17, 20, 26, 0.8);
+    border: 1px solid rgba(36, 42, 54, 0.5);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  
+  .surface-elevated {
+    background: var(--color-bg-panel);
+    border: 1px solid rgba(36, 42, 54, 0.6);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+  }
+
+  /* Button System */
+  .btn-primary {
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: linear-gradient(to right, var(--color-brand-gold), var(--color-brand-amber));
+    color: var(--color-bg-DEFAULT);
+    font-weight: 500;
+    transition: all 0.2s ease-out;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 8px 32px rgba(214,180,106,0.4);
+  }
+  
+  .btn-secondary {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    background: var(--color-bg-soft);
+    color: var(--color-ink-primary);
+    transition: all 0.2s ease-out;
+  }
+  
+  .btn-secondary:hover {
+    border-color: var(--color-ink-muted);
+  }
+  
+  .btn-ghost {
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--color-ink-primary);
+    transition: all 0.2s ease-out;
+  }
+  
+  .btn-ghost:hover {
+    background: rgba(17, 20, 26, 0.5);
+  }
+}
+
+/* --------------------------------------------------
+   Typography Enhancement
+-------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-ink-primary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-ink-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+small {
+  color: var(--color-ink-muted);
+  font-size: 0.875rem;
+}
+
+article, .prose, .max-readable {
+  max-width: 65ch;
+}
+
+/* --------------------------------------------------
+   Interactive Elements
+-------------------------------------------------- */
+
+a {
+  color: var(--color-ink-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+
+a:hover {
+  color: var(--color-brand-gold);
+}
+
+/* --------------------------------------------------
+   Media Optimization
+-------------------------------------------------- */
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------
+   Selection & Scrollbars
+-------------------------------------------------- */
+
+::selection {
+  background: rgba(214, 180, 106, 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-muted);
+}
+
+/* --------------------------------------------------
+   Focus States
+-------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------
+   Animation Utilities
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .stagger-children > * {
+    animation: slideUp 0.6s ease-out;
+    animation-fill-mode: both;
+  }
+  
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+}
+
+/* --------------------------------------------------
+   Print Optimization
+-------------------------------------------------- */
+
+@media print {
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+}

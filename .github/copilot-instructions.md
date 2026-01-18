@@ -8,7 +8,8 @@ Key facts
 - Scripts: `npm run dev`, `npm run build`, `npm start`, `npm run lint` (see `package.json`).
 - Styling: Tailwind v4 with custom theme tokens (`bg.*`, `ink.*`, `brand.*`) — see `tailwind.config.js`.
 - Path alias: `@/*` maps to repo root (see `tsconfig.json`).
-- Dependencies: Firebase, Supabase, Framer Motion, Lucide React.
+- Dependencies: Firebase, Supabase, Framer Motion, Lucide React, Vercel Analytics.
+- No testing framework configured - add testing setup if needed.
 
 Architecture & patterns
 -----------------------
@@ -42,6 +43,7 @@ Conventions & idioms
 - Animations/UX: `PageTransition` wrapper is used around route children for consistent transitions.
 - Global layout: `app/layout.tsx` includes noise texture overlay and radial gradient background pattern — maintain this aesthetic when adding pages.
 - Color system: Use `bg.*` tokens for backgrounds, `ink.*` for text hierarchy, `brand.*` for accent colors (defined in `tailwind.config.js`).
+- Client components: mark with `"use client"` at top of file (see `context/AuthContext.tsx`, form pages in `app/join/*`, interactive pages).
 
 Editing guidelines for agents
 ----------------------------
@@ -56,6 +58,13 @@ Use `app/about/page.tsx` as the canonical example for:
 - Public, no-login informational pages
 - Layout, spacing, tone
 - Tailwind usage (clean `max-w-3xl mx-auto px-6 py-12 space-y-10` pattern)
+
+## Component Organization
+
+- Root-level reusable components: `components/` (Header, PageTransition, Footer, etc.)
+- Route-specific components: `app/[route]/components/` 
+- Global providers and context: `context/` directory
+- UI follows consistent patterns: ambient lighting effects, noise texture overlay, brand color palette
 
 ## Routing Intent
 
