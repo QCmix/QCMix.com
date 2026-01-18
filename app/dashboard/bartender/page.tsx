@@ -3,18 +3,18 @@ import { getCurrentUser } from "@/lib/user";
 export default async function BartenderHome() {
   const user = await getCurrentUser();
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50">
+    <main className="min-h-screen bg-gradient-to-br from-black via-black to-black text-white">
       {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-20">
+      <div className="border-b border-white/10 bg-black/50 backdrop-blur-sm sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-baseline justify-between">
             <div>
               <h1 className="text-4xl font-bold tracking-tight">Shift Board</h1>
-              <p className="mt-2 text-sm text-slate-400">Your daily work hub. See shifts, venues, and who's working.</p>
+              <p className="mt-2 text-sm text-white/60">Your daily work hub. See shifts, venues, and who's working.</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-slate-400">Verified Bartender</p>
-              <p className="text-xs text-slate-500 mt-1">Ready to work</p>
+              <p className="text-sm text-white/60">Verified Bartender</p>
+              <p className="text-xs text-white/40 mt-1">Ready to work</p>
             </div>
           </div>
         </div>
@@ -24,28 +24,28 @@ export default async function BartenderHome() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Quick Action Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-amber-600 to-amber-700 p-4 text-left transition-all hover:shadow-lg hover:shadow-amber-900/50">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/0 to-amber-400/10 group-hover:to-amber-400/20 transition-all" />
-            <p className="relative text-xs font-semibold text-amber-100">Request Shift</p>
+          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-qc-orange to-qc-primary p-4 text-left transition-all hover:shadow-lg hover:shadow-qc-orange/40">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 group-hover:to-white/20 transition-all" />
+            <p className="relative text-xs font-semibold text-white">Request Shift</p>
             <p className="relative mt-1 text-xl font-bold">Open</p>
           </button>
 
-          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-emerald-600 to-emerald-700 p-4 text-left transition-all hover:shadow-lg hover:shadow-emerald-900/50">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/0 to-emerald-400/10 group-hover:to-emerald-400/20 transition-all" />
-            <p className="relative text-xs font-semibold text-emerald-100">Available</p>
+          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-qc-primary to-qc-pink p-4 text-left transition-all hover:shadow-lg hover:shadow-qc-primary/40">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 group-hover:to-white/20 transition-all" />
+            <p className="relative text-xs font-semibold text-white">Available</p>
             <p className="relative mt-1 text-xl font-bold">2 Shifts</p>
           </button>
 
-          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 p-4 text-left transition-all hover:shadow-lg hover:shadow-blue-900/50">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/0 to-blue-400/10 group-hover:to-blue-400/20 transition-all" />
-            <p className="relative text-xs font-semibold text-blue-100">Update Profile</p>
+          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-qc-yellow to-qc-orange p-4 text-left transition-all hover:shadow-lg hover:shadow-qc-yellow/40">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 group-hover:to-white/20 transition-all" />
+            <p className="relative text-xs font-semibold text-white">Update Profile</p>
             <p className="relative mt-1 text-xl font-bold">Edit</p>
           </button>
 
-          <button className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 p-4 text-left transition-all hover:shadow-lg hover:shadow-slate-900/50">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-500/0 to-slate-500/10 group-hover:to-slate-500/20 transition-all" />
-            <p className="relative text-xs font-semibold text-slate-300">Messages</p>
-            <p className="relative mt-1 text-xl font-bold">3 New</p>
+          <button className="group relative overflow-hidden rounded-lg bg-white/10 p-4 text-left transition-all hover:shadow-lg hover:shadow-white/20">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 group-hover:to-white/20 transition-all" />
+            <p className="relative text-xs font-semibold text-white/80">Messages</p>
+            <p className="relative mt-1 text-xl font-bold text-white">3 New</p>
           </button>
         </div>
 

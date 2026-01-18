@@ -3,18 +3,18 @@ import { getCurrentUser } from "@/lib/user";
 export default async function MusicianHome() {
   const user = await getCurrentUser();
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50">
+    <main className="min-h-screen bg-gradient-to-br from-black via-black to-black text-white">
       {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-20">
+      <div className="border-b border-white/10 bg-black/50 backdrop-blur-sm sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-baseline justify-between">
             <div>
               <h1 className="text-4xl font-bold tracking-tight">Artist Station</h1>
-              <p className="mt-2 text-sm text-slate-400">Build your presence. Book shows. Connect with venues.</p>
+              <p className="mt-2 text-sm text-white/60">Build your presence. Book shows. Connect with venues.</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-slate-400">Verified Musician</p>
-              <p className="text-xs text-slate-500 mt-1">Active Profile</p>
+              <p className="text-sm text-white/60">Verified Musician</p>
+              <p className="text-xs text-white/40 mt-1">Active Profile</p>
             </div>
           </div>
         </div>
@@ -23,22 +23,22 @@ export default async function MusicianHome() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Profile Snapshot */}
-        <div className="rounded-lg border border-slate-800 bg-slate-900/40 backdrop-blur-sm overflow-hidden mb-8">
-          <div className="h-32 bg-gradient-to-r from-purple-900/30 via-slate-900 to-slate-900" />
+        <div className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden mb-8">
+          <div className="h-32 bg-gradient-to-r from-qc-primary/30 via-black to-black" />
           <div className="relative px-6 pb-6">
             <div className="flex flex-col md:flex-row md:items-end gap-6 -mt-16">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-slate-800 border-4 border-slate-950 flex items-center justify-center flex-shrink-0">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-qc-primary to-qc-orange border-4 border-black flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl font-bold">🎵</span>
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold">The Echo Collective</h2>
-                <p className="text-slate-400">Indie rock / Alternative · Cedar Rapids, IA</p>
+                <p className="text-white/60">Indie rock / Alternative · Cedar Rapids, IA</p>
                 <div className="flex gap-4 mt-4">
-                  <span className="text-xs font-bold text-emerald-300 bg-emerald-900/40 px-3 py-1 rounded">✓ Verified</span>
-                  <span className="text-xs font-bold text-slate-400 bg-slate-800/40 px-3 py-1 rounded">48 Followers</span>
+                  <span className="text-xs font-bold text-qc-primary bg-qc-primary/20 px-3 py-1 rounded">✓ Verified</span>
+                  <span className="text-xs font-bold text-white/60 bg-white/10 px-3 py-1 rounded">48 Followers</span>
                 </div>
               </div>
-              <button className="px-6 py-2 rounded bg-purple-600 hover:bg-purple-700 font-semibold transition-colors">
+              <button className="px-6 py-2 rounded bg-gradient-to-r from-qc-primary to-qc-orange hover:shadow-lg hover:shadow-qc-primary/40 font-semibold transition-colors">
                 Edit Profile
               </button>
             </div>

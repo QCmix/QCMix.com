@@ -1,194 +1,215 @@
-import Image from 'next/image';
+'use client';
+
 import Link from 'next/link';
 
 const roles = [
 	{
 		id: 'bar-owner',
 		title: 'Bar Owner & Management',
-		subtitle: 'Ownership, management, and venue operations.',
-		image: '/images/roles/bar_owner.jpg',
+		subtitle: 'Build your venue profile, connect with talent, showcase your establishment',
+		description: 'Join as a venue owner to connect with experienced bartenders, talented musicians, and loyal customers. Showcase your bar, promote events, and build your reputation in the Quad Cities nightlife scene.',
+		gradient: 'audience-bg-1',
 		href: '/join/bar-owner',
+		features: ['Verified venue profile', 'Talent discovery network', 'Event promotion tools', 'Customer reviews & feedback']
 	},
 	{
 		id: 'bartender',
-		title: 'Bartender',
-		subtitle: 'Guest-facing bar service and floor leadership.',
-		image: '/images/roles/Bartender.jpg',
+		title: 'Professional Bartender',
+		subtitle: 'Showcase your skills, find opportunities, build your reputation',
+		description: 'Connect with quality venues that value professional bartenders. Build your profile, showcase signature drinks, and advance your career in the industry.',
+		gradient: 'audience-bg-2',
 		href: '/join/bartender',
-	},
-	{
-		id: 'bar-worker',
-		title: 'Bar Worker',
-		subtitle: 'Barback, BOH, security, and door staff.',
-		image: '/images/roles/bar_worker.jpg',
-		href: '/join/bar-worker',
-	},
-	{
-		id: 'distributor',
-		title: 'Distributor',
-		subtitle: 'Beverage distribution and brand representation.',
-		image: '/images/roles/Distributors-&-Industry-Partners.jpg',
-		href: '/join/distributor',
+		features: ['Professional skill profile', 'Direct venue connections', 'Career advancement tools', 'Industry recognition']
 	},
 	{
 		id: 'musician',
-		title: 'Musician',
-		subtitle: 'Performing artists and working musicians.',
-		image: '/images/roles/musician.jpg',
+		title: 'Musicians & Artists',
+		subtitle: 'Get discovered, book gigs, build your following',
+		description: 'Connect directly with venues looking for live music. Build your fanbase, showcase your performances, and grow your music career in the Quad Cities.',
+		gradient: 'audience-bg-3',
 		href: '/join/musician',
+		features: ['Artist profile & portfolio', 'Direct venue booking', 'Fan discovery platform', 'Performance history tracking']
+	},
+	{
+		id: 'bar-worker',
+		title: 'Bar Support Staff',
+		subtitle: 'Barbacks, security, door staff - all essential roles',
+		description: 'Supporting roles are crucial to venue success. Find opportunities in security, door staff, barback positions, and other essential venue operations.',
+		gradient: 'audience-bg-4',
+		href: '/join/bar-worker',
+		features: ['Position matching', 'Skill development resources', 'Career progression paths', 'Industry connections']
+	},
+	{
+		id: 'distributor',
+		title: 'Industry Partners',
+		subtitle: 'Distributors, suppliers, and service providers',
+		description: 'Connect with venues as a distributor, equipment supplier, or service provider. Build business relationships and grow your client base.',
+		gradient: 'audience-bg-5',
+		href: '/join/distributor',
+		features: ['B2B networking platform', 'Venue connection tools', 'Market insights', 'Partnership opportunities']
 	},
 	{
 		id: 'patron',
-		title: 'Patron',
-		subtitle: 'Supporters and regular participants in the scene.',
-		image: '/images/roles/Patron.jpg',
+		title: 'Music & Nightlife Enthusiasts',
+		subtitle: 'Discover new venues, support local artists, join the community',
+		description: 'Join as a community member to discover new venues, follow your favorite artists, and stay connected with the best of Quad Cities nightlife.',
+		gradient: 'audience-bg-6',
 		href: '/join/patron',
-	},
+		features: ['Venue discovery tools', 'Artist following system', 'Event recommendations', 'Community engagement']
+	}
 ];
 
 export default function JoinPage() {
 	return (
-		<main className="bg-[#08080f] min-h-screen">
-			{/* ==================== HERO ==================== */}
-			<section className="relative pt-32 pb-24 px-6 overflow-hidden">
-				{/* Background gradient orbs */}
-				<div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px] -translate-y-1/2" />
-				<div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] translate-y-1/2" />
+		<div className="bg-black text-white min-h-screen">
+			<div className="bg-gradient"></div>
+			<div className="float-element float-1"></div>
+			<div className="float-element float-2"></div>
+			<div className="float-element float-3"></div>
 
-				<div className="relative z-10 max-w-4xl mx-auto text-center">
-					{/* Badge */}
-					<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] text-sm text-white/60 mb-8">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth={1.5}
-							stroke="currentColor"
-							className="w-4 h-4 text-violet-400"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-							/>
-						</svg>
-						<span>Industry Join</span>
-					</div>
-
-					<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[0.95]">
-						<span className="text-white">Choose your</span>
-						<br />
-						<span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-							primary role
-						</span>
+			{/* Hero Section */}
+			<section className="hero">
+				<div className="hero-bg"></div>
+				<div className="hero-content">
+					<div className="hero-subtitle">Join the Community</div>
+					<h1 className="hero-title">
+						Find Your <span className="gradient-text">Place</span><br />
+						in the Scene
 					</h1>
-
-					<p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
-						Select the role that best matches what you do most.
-						Roles determine permissions and tools — they're functional, not status-based.
+					<p className="hero-description">
+						Whether you pour drinks, play music, own a venue, or just love the nightlife—<br />
+						there's a place for you in the Quad Cities scene.
 					</p>
 				</div>
 			</section>
 
-			{/* ==================== ROLE CARDS ==================== */}
-			<section className="px-6 pb-24">
-				<div className="max-w-6xl mx-auto">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{/* Role Selection */}
+			<section className="py-32 px-16 relative z-10">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-20">
+						<h2 className="text-6xl font-black mb-6">Choose Your Role</h2>
+						<p className="text-xl text-white/60 max-w-3xl mx-auto">
+							Select the role that best describes you. You can always add additional roles or update your profile later.
+						</p>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{roles.map((role) => (
 							<Link
 								key={role.id}
 								href={role.href}
-								className="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#0d0d16] border border-white/[0.06] hover:border-violet-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
+								className="group block"
 							>
-								{/* Background Image */}
-								<Image
-									src={role.image}
-									alt={role.title}
-									fill
-									className="object-cover transition-transform duration-700 group-hover:scale-110"
-								/>
-
-								{/* Gradient Overlay */}
-								<div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-[#08080f]/60 to-transparent" />
-								
-								{/* Content */}
-								<div className="absolute inset-0 flex flex-col justify-end p-8">
-									<h2 className="text-2xl font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">
-										{role.title}
-									</h2>
-									<p className="text-white/50 text-sm mb-6">
-										{role.subtitle}
-									</p>
-
-									{/* CTA */}
-									<div className="flex items-center gap-2 text-violet-400 group-hover:text-white transition-colors">
-										<span className="text-sm font-medium">Continue</span>
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
-											<path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-										</svg>
+								<div className="relative h-[500px] rounded-3xl overflow-hidden cursor-pointer transition-transform duration-500 group-hover:scale-105">
+									<div className={`${role.gradient} absolute top-0 left-0 w-full h-full transition-transform duration-500 group-hover:scale-110`} />
+									<div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+									<div className="absolute bottom-0 left-0 p-8 z-10">
+										<h3 className="text-2xl font-extrabold mb-3">{role.title}</h3>
+										<p className="text-white/90 mb-4 font-medium">{role.subtitle}</p>
+										<p className="text-white/70 text-sm mb-6 leading-relaxed">{role.description}</p>
+										<div className="space-y-2 mb-6">
+											{role.features.map((feature, index) => (
+												<div key={index} className="flex items-center gap-2">
+													<div className="w-2 h-2 rounded-full bg-white/60" />
+													<span className="text-white/80 text-sm">{feature}</span>
+												</div>
+											))}
+										</div>
+										<div className="inline-flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all">
+											Join as {role.title.split(' ')[0]} →
+										</div>
 									</div>
 								</div>
-
-								{/* Hover Glow */}
-								<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-violet-600/20 to-transparent pointer-events-none" />
 							</Link>
 						))}
 					</div>
 				</div>
 			</section>
 
-			{/* ==================== INFO BAR ==================== */}
-			<section className="px-6 pb-32">
-				<div className="max-w-4xl mx-auto">
-					<div className="flex flex-col md:flex-row items-center justify-center gap-8 py-8 border-t border-b border-white/[0.06]">
-						<div className="flex items-center gap-3">
-							<div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-emerald-400">
-									<path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-								</svg>
+			{/* Process Steps */}
+			<section className="py-32 px-16 relative z-10">
+				<div className="max-w-6xl mx-auto">
+					<div className="text-center mb-20">
+						<h2 className="text-5xl font-black mb-6">Simple Sign-Up Process</h2>
+						<p className="text-xl text-white/60">Get started in just a few minutes</p>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+						<div className="text-center">
+							<div className="w-20 h-20 rounded-full bg-qc-primary/20 flex items-center justify-center mx-auto mb-6">
+								<span className="text-3xl font-black text-qc-primary">1</span>
 							</div>
-							<span className="text-white/60 text-sm">One role required</span>
+							<h3 className="text-xl font-bold mb-4">Choose Your Role</h3>
+							<p className="text-white/60">Select the role that best describes your position in the nightlife scene. You can add multiple roles later.</p>
 						</div>
-
-						<div className="hidden md:block w-px h-8 bg-white/[0.06]" />
-
-						<div className="flex items-center gap-3">
-							<div className="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-violet-400">
-									<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-								</svg>
+						<div className="text-center">
+							<div className="w-20 h-20 rounded-full bg-qc-orange/20 flex items-center justify-center mx-auto mb-6">
+								<span className="text-3xl font-black text-qc-orange">2</span>
 							</div>
-							<span className="text-white/60 text-sm">Add context later</span>
+							<h3 className="text-xl font-bold mb-4">Build Your Profile</h3>
+							<p className="text-white/60">Add your details, experience, and what makes you unique. This helps others in the community find and connect with you.</p>
 						</div>
-
-						<div className="hidden md:block w-px h-8 bg-white/[0.06]" />
-
-						<div className="flex items-center gap-3">
-							<div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-amber-400">
-									<path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-								</svg>
+						<div className="text-center">
+							<div className="w-20 h-20 rounded-full bg-qc-yellow/20 flex items-center justify-center mx-auto mb-6">
+								<span className="text-3xl font-black text-qc-yellow">3</span>
 							</div>
-							<span className="text-white/60 text-sm">Role changes reviewed</span>
+							<h3 className="text-xl font-bold mb-4">Start Connecting</h3>
+							<p className="text-white/60">Connect with venues, artists, industry professionals, and fellow community members. Your network starts here.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* ==================== BACK LINK ==================== */}
-			<section className="px-6 pb-20">
-				<div className="max-w-4xl mx-auto text-center">
-					<Link
-						href="/"
-						className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors group"
-					>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 group-hover:-translate-x-1 transition-transform">
-							<path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-						</svg>
-						<span>Back to home</span>
-					</Link>
+			{/* Benefits Section */}
+			<section className="py-32 px-16 relative z-10">
+				<div className="max-w-5xl mx-auto text-center">
+					<h2 className="text-5xl font-black mb-6">Why Join QCMix?</h2>
+					<p className="text-xl text-white/60 mb-16">The benefits of being part of the Quad Cities nightlife community</p>
+					
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+						<div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-md">
+							<div className="text-4xl mb-4">🔗</div>
+							<h3 className="text-lg font-bold mb-2">Direct Connections</h3>
+							<p className="text-white/60 text-sm">Skip the middlemen and connect directly with the people you need to reach.</p>
+						</div>
+						<div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-md">
+							<div className="text-4xl mb-4">📈</div>
+							<h3 className="text-lg font-bold mb-2">Grow Your Network</h3>
+							<p className="text-white/60 text-sm">Build meaningful relationships that advance your career or business goals.</p>
+						</div>
+						<div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-md">
+							<div className="text-4xl mb-4">🎯</div>
+							<h3 className="text-lg font-bold mb-2">Targeted Opportunities</h3>
+							<p className="text-white/60 text-sm">Find opportunities that match your skills, location, and career aspirations.</p>
+						</div>
+						<div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-md">
+							<div className="text-4xl mb-4">🏆</div>
+							<h3 className="text-lg font-bold mb-2">Build Your Reputation</h3>
+							<p className="text-white/60 text-sm">Showcase your work, get reviews, and build a reputation that opens doors.</p>
+						</div>
+					</div>
 				</div>
 			</section>
-		</main>
+
+			{/* CTA Section */}
+			<section className="cta-section">
+				<div className="cta-container">
+					<h2 className="cta-title">Ready to Join?</h2>
+					<p className="cta-description">
+						Choose your role above to get started, or learn more about<br />
+						what makes QCMix special.
+					</p>
+					<div className="cta-buttons">
+						<button 
+							className="btn-primary" 
+							onClick={() => document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3')?.scrollIntoView({ behavior: 'smooth' })}
+						>
+							Choose Your Role
+						</button>
+						<Link href="/" className="btn-secondary">Back to Home</Link>
+					</div>
+				</div>
+			</section>
+		</div>
 	);
 }

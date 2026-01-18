@@ -1,53 +1,119 @@
+'use client';
+
 export default function BartendersPage() {
   return (
-    <main className="bg-neutral-950 text-neutral-100 min-h-screen">
-      <section className="max-w-7xl mx-auto py-24 px-6 text-center">
-        <h1 className="text-5xl font-bold mb-6">You make the night work.</h1>
-        <p className="text-xl mb-10">Visibility and protection for the people behind the bar.</p>
-        <a href="#" className="px-8 py-4 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition mb-16 inline-block">Join as Industry</a>
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-4">Reality</h2>
-          <ul className="space-y-2 text-left max-w-xl mx-auto">
-            <li>No public record of experience</li>
-            <li>Word-of-mouth disappears online</li>
-            <li>Invisible outside the shift</li>
-          </ul>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div className="border border-neutral-800 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-2">Industry profile</h3>
-            <p>Showcase your experience and skills.</p>
+    <div className="bg-black text-white min-h-screen">
+      <div className="bg-gradient"></div>
+      <div className="float-element float-1"></div>
+      <div className="float-element float-2"></div>
+      <div className="float-element float-3"></div>
+
+      {/* Hero Section */}
+      <section className="hero" style={{ backgroundImage: 'url(/images/hero/bartenders-hero.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="hero-bg"></div>
+        <div className="hero-content">
+          <div className="hero-subtitle">Professional Bartenders</div>
+          <h1 className="hero-title">
+            Find Your<br />
+            <span className="gradient-text">Next Opportunity</span>
+          </h1>
+          <p className="hero-description">
+            Build your reputation. Connect with bars that value your craft<br />
+            and customers who appreciate quality drinks.
+          </p>
+          <div className="hero-buttons">
+            <button className="btn-primary" onClick={() => window.location.href='/join/bartender'}>Start Building Profile</button>
+            <button className="btn-secondary" onClick={() => window.location.href='/bars'}>Browse Opportunities</button>
           </div>
-          <div className="border border-neutral-800 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-2">Coworker network</h3>
-            <p>No personal phone numbers required.</p>
-          </div>
-          <div className="border border-neutral-800 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-2">Scene visibility</h3>
-            <p>Get noticed by venues and patrons.</p>
-          </div>
-          <div className="border border-neutral-800 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-2">Tip Compliance App (Coming Soon)</h3>
-            <p>Track tips and income securely.</p>
-          </div>
-          <div className="border border-neutral-800 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-2">Know your worth</h3>
-            <p>Tip & income tracking for transparency.</p>
-          </div>
-          <div className="border border-neutral-800 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-2">Customer & shift records</h3>
-            <p>Keep a private log of your work.</p>
-          </div>
-        </div>
-        <div className="max-w-2xl mx-auto text-left">
-          <h2 className="text-2xl font-bold mb-4">Founder Context</h2>
-          <ul className="space-y-2">
-            <li>Tip Compliance App was created after a bad experience with a bar owner</li>
-            <li>Builtin for IA/IL first</li>
-            <li>Data is private and never sold</li>
-          </ul>
         </div>
       </section>
-    </main>
+
+      {/* Industry Challenges */}
+      <section className="features">
+        <div className="section-header">
+          <h2 className="section-title">The Bartending Reality</h2>
+          <p className="section-subtitle">Challenges every professional bartender faces</p>
+        </div>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">💼</div>
+            <h3 className="feature-title">Job Search Struggle</h3>
+            <p className="feature-description">Finding quality bar positions often relies on word-of-mouth and timing rather than showcasing your skills.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🏆</div>
+            <h3 className="feature-title">Recognition Gap</h3>
+            <p className="feature-description">Your craft skills and customer service excellence aren't always visible to potential employers.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">💸</div>
+            <h3 className="feature-title">Inconsistent Income</h3>
+            <p className="feature-description">Part-time schedules and seasonal fluctuations make financial planning challenging.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🔄</div>
+            <h3 className="feature-title">High Turnover</h3>
+            <p className="feature-description">The industry's reputation for instability affects career growth and professional development.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions for Bartenders */}
+      <section className="audience">
+        <div className="section-header">
+          <h2 className="section-title">Elevate Your Career</h2>
+          <p className="section-subtitle">Everything you need to advance as a professional bartender</p>
+        </div>
+        <div className="audience-grid">
+          <div className="audience-card">
+            <div className="audience-bg audience-bg-1"></div>
+            <div className="audience-content">
+              <h3 className="audience-title">Professional Profile</h3>
+              <p className="audience-description">Showcase your skills, experience, and signature drinks to attract quality employers who value expertise.</p>
+              <a href="/join/bartender" className="audience-link">Build Profile →</a>
+            </div>
+          </div>
+          <div className="audience-card">
+            <div className="audience-bg audience-bg-2"></div>
+            <div className="audience-content">
+              <h3 className="audience-title">Direct Connections</h3>
+              <p className="audience-description">Connect directly with bar owners and managers who are actively seeking experienced bartenders.</p>
+              <a href="/bars" className="audience-link">Find Opportunities →</a>
+            </div>
+          </div>
+          <div className="audience-card">
+            <div className="audience-bg audience-bg-3"></div>
+            <div className="audience-content">
+              <h3 className="audience-title">Skill Recognition</h3>
+              <p className="audience-description">Get verified reviews from customers and colleagues that demonstrate your professional expertise.</p>
+              <a href="/editorial" className="audience-link">Success Stories →</a>
+            </div>
+          </div>
+          <div className="audience-card">
+            <div className="audience-bg audience-bg-4"></div>
+            <div className="audience-content">
+              <h3 className="audience-title">Industry Network</h3>
+              <p className="audience-description">Build relationships with other bartenders, venue owners, and industry professionals for career growth.</p>
+              <a href="/discover" className="audience-link">Join Community →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="cta-container">
+          <h2 className="cta-title">Ready to Advance Your Career?</h2>
+          <p className="cta-description">
+            Join professional bartenders building their reputation<br />
+            in the Quad Cities nightlife scene.
+          </p>
+          <div className="cta-buttons">
+            <button className="btn-primary" onClick={() => window.location.href='/join/bartender'}>Build Your Profile</button>
+            <button className="btn-secondary" onClick={() => window.location.href='/bars'}>Browse Opportunities</button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

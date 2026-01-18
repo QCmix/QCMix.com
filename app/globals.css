@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 /* ==================================================
    QCmix — Design System Foundation
@@ -278,6 +280,7 @@ body {
   font-weight: 900;
   background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -1px;
 }
@@ -376,6 +379,7 @@ body {
 .hero-title .gradient-text {
   background: linear-gradient(135deg, #ff6b35, #f7931e, #feca57);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
