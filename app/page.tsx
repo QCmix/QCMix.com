@@ -1,19 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "QCMix - Quad Cities Nightlife Platform for Bartenders, Musicians & Venues",
-  description: "Connect with the Quad Cities nightlife community. QCMix is where bartenders, musicians, venue owners, and patrons discover opportunities and build community together.",
-  keywords: "Quad Cities bars, Davenport nightlife, bartender jobs, live music QC, Iowa venues, Bettendorf nightlife",
-  openGraph: {
-    title: "QCMix - Quad Cities Nightlife Community",
-    description: "Connect with bartenders, musicians, venues, and patrons in the Quad Cities.",
-    url: "https://qcmix.com",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
-  },
-};
 
 export default function HomePage() {
   useEffect(() => {

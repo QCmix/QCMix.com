@@ -1,18 +1,5 @@
 'use client';
 
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Quad Cities Bars & Venues | QCMix - Find Bars in Davenport & Bettendorf",
-  description: "Discover bars, venues, and nightlife destinations in the Quad Cities. Connect with bartenders and musicians. Explore live music venues in Davenport, Bettendorf, and Cedar Rapids.",
-  keywords: "Quad Cities bars, Davenport bars, Bettendorf venues, Iowa nightlife, live music venues, bar finder, nightclub, lounges",
-  openGraph: {
-    title: "Discover Quad Cities Bars & Venues | QCMix",
-    description: "Find the best bars, venues, and nightlife experiences in the Quad Cities region.",
-    url: "https://qcmix.com/bars",
-  },
-};
-
 export default function BarsPage() {
   return (
     <div className="bg-black text-white min-h-screen">

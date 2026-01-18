@@ -79,46 +79,11 @@ const nextConfig = {
     ];
   },
 
-  // Rewrites for clean URL structure
-  async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/sitemap.xml',
-          destination: '/api/sitemap.xml',
-        },
-        {
-          source: '/robots.txt',
-          destination: '/api/robots.txt',
-        },
-      ],
-    };
-  },
+  // Rewrites not required for sitemap/robots (handled by app/public)
 
   // Webpack optimizations
   webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          ...config.optimization.splitChunks,
-          cacheGroups: {
-            ...config.optimization.splitChunks.cacheGroups,
-            default: false,
-            vendors: false,
-            // Vendor chunk
-            vendor: {
-              filename: 'vendor.[hash].js',
-              chunks: 'all',
-              reuseExistingChunk: true,
-              priority: 20,
-              test: /node_modules/,
-              enforce: true,
-            },
-          },
-        },
-      };
-    }
+    // Use Next.js defaults; remove custom splitChunks to avoid filename conflicts
     return config;
   },
 
