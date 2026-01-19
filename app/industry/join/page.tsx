@@ -1,65 +1,111 @@
-import Link from "next/link";
+'use client';
 
-export default function IndustryJoinPage() {
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+export default function JoinIndustry() {
+  const router = useRouter();
+  const [form, setForm] = useState({
+    name: '',
+    role: '',
+    city: '',
+    email: '',
+    instagram: '',
+    work: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(form);
+    router.push('/thank-you');
+  };
+
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
-      <header className="mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          Industry Join
+    <main className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gray-900 p-8 rounded-lg max-w-xl w-full space-y-5"
+      >
+        <h1 className="text-2xl font-bold">
+          Join the Industry Beta
         </h1>
-        <p className="mt-4 text-base text-neutral-600">
-          Industry Join is the structured on-ramp into the internal QCMix community.
-          This establishes identity and representation first — not promotion.
-        </p>
-      </header>
 
-      <section className="space-y-4 text-neutral-700">
-        <p>
-          This space is built for the people who work the scene, support it,
-          and help sustain it — from behind the bar to behind the music.
+        <p className="text-gray-300 text-sm">
+          We’re onboarding bartenders, musicians, DJs, and sound techs into our
+          private beta to build the QC hiring and booking network together.
         </p>
 
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <strong>Representation is free.</strong> No payment is required to exist here.
-          </li>
-          <li>
-            <strong>Promotion is earned or paid — and always labeled.</strong>
-            Editorial judgment remains independent.
-          </li>
-          <li>
-            <strong>21+ by default.</strong> Verified exceptions exist for working
-            under-21 bartenders and musicians aged 18–20.
-          </li>
-        </ul>
-      </section>
+        <input
+          required
+          placeholder="Name"
+          className="w-full p-2 rounded bg-gray-800 text-white"
+          value={form.name}
+          onChange={(e) =>
+            setForm({ ...form, name: e.target.value })
+          }
+        />
 
-      <section className="mt-12 flex flex-col gap-4 sm:flex-row">
-        <Link
-          href="/industry/join/role"
-          className="inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800"
+        <select
+          required
+          className="w-full p-2 rounded bg-gray-800 text-white"
+          value={form.role}
+          onChange={(e) =>
+            setForm({ ...form, role: e.target.value })
+          }
         >
-          Start Industry Join
-        </Link>
+          <option value="">Select role</option>
+          <option>Bartender</option>
+          <option>Musician</option>
+          <option>DJ</option>
+          <option>Sound tech</option>
+        </select>
 
-        <Link
-          href="/industry/join#how-it-works"
-          className="inline-flex items-center justify-center rounded-md border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-700 hover:bg-neutral-100"
+        <input
+          required
+          placeholder="City"
+          className="w-full p-2 rounded bg-gray-800 text-white"
+          value={form.city}
+          onChange={(e) =>
+            setForm({ ...form, city: e.target.value })
+          }
+        />
+
+        <input
+          required
+          type="email"
+          placeholder="Email"
+          className="w-full p-2 rounded bg-gray-800 text-white"
+          value={form.email}
+          onChange={(e) =>
+            setForm({ ...form, email: e.target.value })
+          }
+        />
+
+        <input
+          placeholder="Instagram (optional)"
+          className="w-full p-2 rounded bg-gray-800 text-white"
+          value={form.instagram}
+          onChange={(e) =>
+            setForm({ ...form, instagram: e.target.value })
+          }
+        />
+
+        <textarea
+          placeholder="What kind of work are you looking for?"
+          className="w-full p-2 rounded bg-gray-800 text-white"
+          value={form.work}
+          onChange={(e) =>
+            setForm({ ...form, work: e.target.value })
+          }
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-white text-black py-3 rounded-md font-medium hover:bg-gray-200"
         >
-          Learn how access works
-        </Link>
-      </section>
-
-      <section id="how-it-works" className="mt-20 border-t pt-10 text-sm text-neutral-600">
-        <h2 className="text-base font-semibold text-neutral-900">
-          How access works
-        </h2>
-        <p className="mt-3">
-          Everyone starts in a basic state. Additional tools, visibility, and
-          participation unlock through verification, contribution, and trust.
-          Payment may unlock labeled exposure, but never control.
-        </p>
-      </section>
+          Join the Beta
+        </button>
+      </form>
     </main>
   );
 }

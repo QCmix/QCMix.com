@@ -30,6 +30,9 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // TEMP: Nav disabled for Coming Soon mode
+  if (true) return null;
+
   return (
     <>
       <header
