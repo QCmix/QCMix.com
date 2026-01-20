@@ -18,6 +18,13 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-32">
           <div className="max-w-5xl">
+            {/* Logo */}
+            <img
+              src="/WhiteLogoTrans.png"
+              alt="QCMix logo"
+              className="h-20 md:h-24 mb-12"
+            />
+            
             {/* Main Headline */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-medium tracking-tight leading-[0.95] mb-16">
               The operating<br />
@@ -90,7 +97,12 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-black border-t border-white/10 py-12 px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto text-center space-y-6">
+          <img
+            src="/WhiteLogoTrans.png"
+            alt="QCMix logo"
+            className="h-10 mx-auto"
+          />
           <a
             href="/contact"
             className="text-gray-500 hover:text-gray-300 transition-colors duration-200 text-sm"
