@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-center">
+      <section className="relative w-full min-h-screen flex flex-col items-start justify-start pt-12 md:pt-16">
         {/* Full Bleed Hero Image */}
         <img
           src="/hero-bar-interior-01.jpg"
@@ -16,17 +16,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-32">
-          <div className="max-w-5xl">
+        <div className="relative z-10 w-full mx-auto px-6 md:px-12 py-8 md:py-12 flex flex-col justify-center flex-1">
+          <div className="w-full">
             {/* Logo */}
             <img
               src="/WhiteLogoTrans.png"
               alt="QCMix logo"
-              className="h-20 md:h-24 mb-12"
+              className="h-24 md:h-28 mb-16 md:mb-20"
             />
             
-            {/* Main Headline */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-medium tracking-tight leading-[0.95] mb-16">
+            {/* Main Headline - Brutalist, Full Width */}
+            <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[120px] xl:text-[150px] font-bold tracking-tighter leading-[0.9] mb-12 md:mb-16 max-w-full">
               The operating<br />
               system for<br />
               Quad Cities<br />
@@ -34,22 +34,22 @@ export default function Home() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light leading-relaxed mb-20 max-w-4xl">
+            <p className="text-2xl md:text-3xl lg:text-5xl text-gray-200 font-light leading-relaxed mb-16 md:mb-24 max-w-3xl">
               A hiring and booking network built for bars, venues, bartenders, and musicians.
             </p>
 
             {/* Single CTA */}
-            <div className="mb-24">
+            <div className="mb-20 md:mb-28">
               <a
                 href="/join-venue"
-                className="inline-block px-12 py-4 bg-white text-black text-base font-medium tracking-wide hover:bg-gray-100 transition-colors duration-200"
+                className="inline-block px-14 md:px-16 py-5 md:py-6 bg-white text-black text-base md:text-lg font-bold tracking-wide hover:bg-gray-200 transition-colors duration-200"
               >
                 Request Founding Access
               </a>
             </div>
 
             {/* Three Benefits - Clean List */}
-            <div className="space-y-5 text-xl text-gray-400 max-w-2xl">
+            <div className="space-y-6 md:space-y-8 text-2xl md:text-3xl text-gray-300 max-w-3xl font-light">
               <p>Hire bartenders faster</p>
               <p>Book live acts without chaos</p>
               <p>Find real paid gigs</p>
