@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen flex flex-col items-start justify-start pt-12 md:pt-16">
+      <section className="relative w-full min-h-screen">
         {/* Full Bleed Hero Image */}
         <img
           src="/hero-bar-interior-01.jpg"
@@ -16,13 +16,13 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
 
         {/* Content */}
-        <div className="relative z-10 w-full mx-auto px-6 md:px-12 py-8 md:py-12 flex flex-col justify-center flex-1">
+        <div className="relative z-10 w-full px-6 md:px-12 pt-8 md:pt-12 pb-16">
           <div className="w-full">
-            {/* Logo */}
+            {/* Logo - Top Left */}
             <img
               src="/WhiteLogoTrans.png"
               alt="QCMix logo"
-              className="h-24 md:h-28 mb-16 md:mb-20"
+              className="h-20 md:h-24 mb-12 md:mb-16"
             />
             
             {/* Main Headline - Brutalist, Full Width */}
