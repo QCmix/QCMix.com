@@ -12,40 +12,40 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         
-        {/* Deep Black Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black"></div>
+        {/* Heavy Black Gradient on LEFT (to-transparent on right) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
 
         {/* Content - LEFT ALIGNED BRUTALIST */}
-        <div className="relative z-10 w-full px-6 md:px-16 lg:px-20 pt-12 md:pt-16 pb-20">
+        <div className="relative z-10 w-full px-8 md:px-20 lg:px-24 pt-16 md:pt-24 pb-24 md:pb-32 flex flex-col justify-start">
           {/* Logo - Top Left */}
           <img
             src="/WhiteLogoTrans.png"
             alt="QCMix"
-            className="h-20 md:h-24 mb-20 md:mb-32"
+            className="h-20 md:h-28 mb-32 md:mb-40"
           />
           
-          {/* Main Headline - MASSIVE BRUTALIST */}
-          <h1 className="text-8xl md:text-9xl lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter leading-[0.85] mb-16 md:mb-20 max-w-5xl">
+          {/* Main Headline - MASSIVE BOLD BRUTALIST */}
+          <h1 className="text-[12rem] font-black uppercase tracking-tighter leading-[0.8] mb-24 md:mb-32 max-w-2xl">
             Operating<br />
             System for<br />
             Nightlife
           </h1>
 
           {/* Subheadline - Serious Tone */}
-          <p className="text-lg md:text-2xl text-gray-300 uppercase tracking-wide leading-relaxed mb-20 md:mb-28 max-w-2xl font-light">
+          <p className="text-lg md:text-2xl text-white uppercase tracking-wider leading-relaxed mb-24 md:mb-32 max-w-2xl font-light">
             Infrastructure, not social media. Hiring and booking network for bars, venues, bartenders, musicians.
           </p>
 
-          {/* CTA - Sharp, Uppercase */}
+          {/* CTA - Sharp White Button */}
           <a
             href="/join-venue"
-            className="inline-block px-12 md:px-16 py-4 md:py-5 bg-white text-black uppercase text-sm md:text-base font-black tracking-widest rounded-none hover:bg-gray-100 transition-colors duration-300"
+            className="inline-block px-16 md:px-20 py-5 md:py-6 bg-white text-black uppercase text-sm md:text-base font-black tracking-widest rounded-none hover:bg-gray-100 transition-colors duration-300 w-fit"
           >
             Request Access
           </a>
 
           {/* Meta Info - Left Aligned */}
-          <div className="mt-32 md:mt-40 space-y-8 text-sm uppercase tracking-widest text-gray-500">
+          <div className="mt-auto pt-32 md:pt-40 space-y-6 text-xs uppercase tracking-widest text-gray-400">
             <p>Limited Founding Membership</p>
             <p>First 10 Venues · First 100 Members</p>
           </div>
@@ -53,54 +53,48 @@ export default function Home() {
       </section>
 
       {/* Proposition Section - Asymmetric Layout */}
-      <section className="bg-black border-t border-white/5 px-6 md:px-16 lg:px-20 py-24 md:py-32">
+      <section className="bg-black border-t border-white/10 px-8 md:px-20 lg:px-24 py-32 md:py-48">
         <div className="w-full max-w-2xl">
-          {/* Section Divider */}
-          <div className="border-t border-white/20 mb-12"></div>
-          
           {/* Headline */}
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-16">
-            Why You<br />
+          <h2 className="text-7xl md:text-[110px] font-black uppercase tracking-tighter leading-[0.8] mb-20 md:mb-28">
+            [01] Why You<br />
             Need<br />
             QCMix
           </h2>
 
           {/* Proposition List - Left Aligned */}
-          <div className="space-y-12 text-base md:text-lg text-gray-300 uppercase tracking-wide leading-relaxed">
+          <div className="space-y-14 md:space-y-16 text-base md:text-lg text-white uppercase tracking-wide leading-relaxed">
             <div>
-              <p className="font-black text-white mb-2">001</p>
-              <p>Hire Bartenders Without Chaos</p>
+              <p className="font-black text-gray-400 text-sm mb-3">001</p>
+              <p className="font-light">Hire Bartenders Without Chaos</p>
             </div>
             <div>
-              <p className="font-black text-white mb-2">002</p>
-              <p>Book Live Acts In Real Time</p>
+              <p className="font-black text-gray-400 text-sm mb-3">002</p>
+              <p className="font-light">Book Live Acts In Real Time</p>
             </div>
             <div>
-              <p className="font-black text-white mb-2">003</p>
-              <p>Find Paid Gigs You Can Trust</p>
+              <p className="font-black text-gray-400 text-sm mb-3">003</p>
+              <p className="font-light">Find Paid Gigs You Can Trust</p>
             </div>
             <div>
-              <p className="font-black text-white mb-2">004</p>
-              <p>Network With Industry Peers</p>
+              <p className="font-black text-gray-400 text-sm mb-3">004</p>
+              <p className="font-light">Network With Industry Peers</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Founding Access Section */}
-      <section className="bg-black border-t border-white/5 px-6 md:px-16 lg:px-20 py-24 md:py-32">
+      <section className="bg-black border-t border-white/10 px-8 md:px-20 lg:px-24 py-32 md:py-48">
         <div className="w-full max-w-2xl">
-          {/* Section Divider */}
-          <div className="border-t border-white/20 mb-12"></div>
-
           {/* Headline */}
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-16">
-            Founding<br />
+          <h2 className="text-7xl md:text-[110px] font-black uppercase tracking-tighter leading-[0.8] mb-20 md:mb-28">
+            [02] Founding<br />
             Access
           </h2>
 
           {/* Benefits - No Cards, Just Text */}
-          <div className="space-y-6 text-sm md:text-base text-gray-300 uppercase tracking-wide mb-20">
+          <div className="space-y-8 text-base md:text-lg text-white uppercase tracking-wider mb-24 md:mb-32 font-light">
             <p>✓ Lifetime discounted pricing</p>
             <p>✓ Priority placement at launch</p>
             <p>✓ Direct input on features</p>
@@ -110,37 +104,37 @@ export default function Home() {
           {/* CTA */}
           <a
             href="/join-venue"
-            className="inline-block px-12 md:px-16 py-4 md:py-5 bg-white text-black uppercase text-sm md:text-base font-black tracking-widest rounded-none hover:bg-gray-100 transition-colors duration-300"
+            className="inline-block px-16 md:px-20 py-5 md:py-6 bg-white text-black uppercase text-sm md:text-base font-black tracking-widest rounded-none hover:bg-gray-100 transition-colors duration-300 w-fit"
           >
             Claim Spot
           </a>
 
           {/* Meta */}
-          <p className="text-xs uppercase tracking-widest text-gray-600 mt-12">
+          <p className="text-xs uppercase tracking-widest text-gray-600 mt-16 md:mt-20">
             Limited to the first 10 venues and 100 industry members
           </p>
         </div>
       </section>
 
       {/* Footer - Minimal Brutalist */}
-      <footer className="bg-black border-t border-white/5 px-6 md:px-16 lg:px-20 py-16 md:py-20">
-        <div className="w-full flex flex-col md:flex-row items-start justify-between max-w-5xl">
+      <footer className="bg-black border-t border-white/10 px-8 md:px-20 lg:px-24 py-20 md:py-28">
+        <div className="w-full flex flex-col md:flex-row items-start justify-between max-w-5xl mb-20 md:mb-28">
           {/* Logo Left */}
           <img
             src="/WhiteLogoTrans.png"
             alt="QCMix"
-            className="h-12 md:h-14 mb-8 md:mb-0"
+            className="h-14 md:h-16 mb-12 md:mb-0"
           />
 
           {/* Links Right */}
-          <div className="flex gap-12 text-xs uppercase tracking-widest text-gray-500">
+          <div className="flex gap-16 text-xs uppercase tracking-widest text-gray-500">
             <a href="/contact" className="hover:text-white transition-colors duration-300">Contact</a>
             <a href="/privacy" className="hover:text-white transition-colors duration-300">Privacy</a>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 border-t border-white/5 pt-12">
+        <div className="border-t border-white/10 pt-20 md:pt-28">
           <p className="text-xs uppercase tracking-widest text-gray-600">
             © QCMix 2026 · Quad Cities, IA
           </p>
