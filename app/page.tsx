@@ -14,6 +14,11 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans antialiased overflow-x-hidden flex flex-col">
+      {process.env.NODE_ENV === 'development' && (
+        <div className="fixed top-2 left-2 z-[9999] bg-red-600 text-white text-xs font-mono px-2 py-1 tracking-wider">
+          DEV: Home Mounted
+        </div>
+      )}
       {/* --------------------------------------------------
         NAVIGATION / MASTHEAD (Fixed Layer)
         --------------------------------------------------
@@ -72,7 +77,7 @@ const LandingPage = () => {
         <div className="relative z-10 w-full mt-auto mb-16 md:mb-24 lg:mb-32 pt-48">
           <h1 className="font-black uppercase tracking-tighter leading-[0.85] text-white text-[15vw] md:text-[11vw] lg:text-[10vw] mb-12">
             <span className="block">QUAD CITIES</span>
-            <span className="block text-gray-800">NIGHTLIFE</span>
+            <span className="block text-gray-500">NIGHTLIFE</span>
             <span className="block">OPERATING</span>
             <span className="block">SYSTEM</span>
           </h1>
